@@ -14,7 +14,7 @@ class SmsMessage
   end
 
   def send_message
-    client = Twilio::REST::Client.new
+    client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
     client.messages.create(
       from: prompt_pass_number,
       to: "+1#{recipient_number}",

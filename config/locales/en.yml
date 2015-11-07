@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   forms:
     secrets:
-      submit_button: "Send It!"
+      submit_button: "Send your secret message"
   notifications:
     secrets:
       sent: "Shhhhh! Your secret is on the way. Don't tell anyone."
