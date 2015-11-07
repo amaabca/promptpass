@@ -1,0 +1,2 @@
+class EncryptionError < Exception
+end

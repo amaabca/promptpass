@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  forms:
+    secrets:
+      submit_button: "Send It!"
+  notifications:
+    secrets:
+      sent: "Shhhhh! Your secret is on the way. Don't tell anyone."
+  errors:
+    messages:
+      phone_number: "must be a valid 10 digit phone number."
+      email: "must be a valid email address."
+      blank: "is a required field."
+      encryption: "we were unable to encrypt the message."
