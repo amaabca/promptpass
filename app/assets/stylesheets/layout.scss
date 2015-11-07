@@ -2,12 +2,6 @@ $button-color: #29BCCB;
 $light-grey: #DFDFDF;
 $grey-text: #6A6868;
 
- .nav{
-   min-height: 75px;
-   width: 100%;
-   border-bottom: 1px solid blue;
- }
-
  .banner{
    min-height: 430px;
    background: -webkit-linear-gradient(#50C7CE, #2A939B);
@@ -32,7 +26,7 @@ $grey-text: #6A6868;
  .cta{
    width: 100%;
    height: auto;
-   margin-top: 40px;
+   margin-top: 80px;
 
    .tagline{
      width: 100%;
@@ -44,12 +38,11 @@ $grey-text: #6A6868;
 
  .blinking-cursor {
   font-size: 35px;
-  color: white;
+  color: transparent;
   width:2.5px;
   height: 10px;
   background: white;
   margin-left: 4px;
-  color: transparent;
   -webkit-animation: 1.2s blink step-end infinite;
   -moz-animation: 1.2s blink step-end infinite;
   -ms-animation: 1.2s blink step-end infinite;
@@ -117,7 +110,7 @@ $grey-text: #6A6868;
  .demo-form-wrapper{
    background-color: white;
    min-height: 400px;
-   margin: -230px auto 0 auto;
+   margin: -200px auto 0 auto;
    position: relative;
    z-index: 600;
    border: 1px solid #D2D2D2;
@@ -280,6 +273,9 @@ button{
  .top-bar{
      height: 65px;
      border-bottom: 1px solid #DFDFDF;
+     position: fixed;
+     z-index: 900;
+     width:100%;
  }
  .top-bar .row {
      max-width: 62.5rem;
@@ -314,6 +310,7 @@ button{
  .top-bar-section ul li > a {
      font-size: 0.8rem;
      text-transform: uppercase;
+     color: $grey-text;
  }
 
  .top-bar-section li:not(.has-form) a:not(.button){
@@ -324,6 +321,11 @@ button{
       background-color: none;
       background: none;
   }
+}
+
+.top-bar.expanded {
+    background: white;
+    height: auto;
 }
 
 @media only screen and (min-width: 40.0625em){
