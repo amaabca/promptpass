@@ -1,4 +1,5 @@
 $button-color:#29BCCB;
+$grey-text: #6A6868;
 
  .nav{
    min-height:75px;
@@ -245,6 +246,12 @@ button{
     background-color: white;
 }
 
+@media only screen and (min-width: 40.0625em){
+  .top-bar-section li:not(.has-form) a:not(.button) {
+      color: $grey-text;
+      line-height: 65px;
+  }
+}
  @media only screen and (min-width: 58.75rem){
   .top-bar-section li.active:not(.has-form) a:not(.button){
       border-bottom: 1px solid #2ba6cb;
