@@ -1,10 +1,11 @@
-$button-color:#29BCCB;
+$button-color: #29BCCB;
+$light-grey: #DFDFDF;
 $grey-text: #6A6868;
 
  .nav{
-   min-height:75px;
-   width:100%;
-   border-bottom:1px solid blue;
+   min-height: 75px;
+   width: 100%;
+   border-bottom: 1px solid blue;
  }
 
  .banner{
@@ -18,7 +19,7 @@ $grey-text: #6A6868;
  }
 
  .cta{
-   width:100%;
+   width: 100%;
    height: auto;
    margin-top: 40px;
  }
@@ -41,7 +42,7 @@ $grey-text: #6A6868;
    min-width: 100%;
    padding: 25px;
    color:#1CCEE0;
-   bottom:0;
+   bottom: 0;
    border-top: 1px solid #D2D2D2;
 
    &:hover{
@@ -54,7 +55,7 @@ button{
    margin: 0 auto;
    display: block;
    background: $button-color;
-   color:white;
+   color: white;
    border-radius: 2px;
    text-transform: uppercase;
    min-width: 100%;
@@ -122,35 +123,11 @@ button{
   }
  }
 
- /*Helper classes*/
- .fullWidth{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: initial;
-    padding: 0;
- }
-
- .skrollable{
-   position: absolute;
- }
-
- .pt1{
-     padding-top: 20px;
- }
-
- .p1{
-   padding: 20px;
- }
-
- p{
-   color: #6A6868;
- }
-
- .relative{
-   position: relative;
-   height: auto;
-   min-height: 200px;
+ .msg-wrapper{
+   background: white;
+   min-height: 300px;
+   margin-top: 50px;
+   border:1px solid $light-grey;
  }
 
  /*overrides*/
@@ -236,18 +213,28 @@ button{
      line-height: 65px;
  }
 
+ .top-bar-section ul li{
+   background: none;
+ }
+
  .top-bar-section ul li > a {
      font-size: 0.8rem;
      text-transform: uppercase;
  }
 
- .top-bar-section li:not(.has-form) a:not(.button):hover {
-    color: $button-color;
-    background-color: white;
+ .top-bar-section li:not(.has-form) a:not(.button){
+   background: none;
+
+   &:hover {
+      color: $button-color;
+      background-color: none;
+      background: none;
+  }
 }
 
 @media only screen and (min-width: 40.0625em){
   .top-bar-section li:not(.has-form) a:not(.button) {
+      background: none;
       color: $grey-text;
       line-height: 65px;
   }
@@ -262,7 +249,7 @@ button{
 
   .top-bar-section li:not(.has-form) a:not(.button){
       line-height: 65px;
-      color:#6A6868;
+      color: #6A6868;
       padding: 0 0.9375rem;
   }
 }
