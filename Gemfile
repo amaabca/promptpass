@@ -32,9 +32,25 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'puma'
+gem 'rack-timeout'
+
 gem 'foundation-rails'
 gem 'foreman'
 gem 'twilio-ruby'
+gem 'rollbar', '~> 2.4.0'
+
+# validation and normalization
+gem 'attribute_normalizer-extras'
+
+# better controllers
+gem 'decent_exposure'
+
+# decorators
+gem 'draper'
+
+# simple forms
+gem 'simple_form'
 
 group :test do
   gem 'simplecov', require: false
@@ -59,4 +75,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
