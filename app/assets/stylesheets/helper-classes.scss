@@ -1,3 +1,8 @@
+$button-color: #29BCCB;
+$yellow: #f2bd58;
+$red: #E53D41;
+$blue: #29BCCB;
+
 /*Helper classes*/
 .fullWidth{
    width: 100%;
@@ -27,4 +32,24 @@ p{
   position: relative;
   height: auto;
   min-height: 200px;
+}
+
+.blue-bg{
+  background-color: $button-color;
+}
+
+.yellow-bg{
+  background-color: $yellow;
+}
+
+.red-bg{
+  background-color: $red;
+}
+
+.blue-bg{
+  
+}
+
+.white-text{
+  color: white;
 }

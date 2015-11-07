@@ -18,19 +18,100 @@ $grey-text: #6A6868;
    z-index: 300;
  }
 
+ .banner-icon{
+   min-width: 300px;
+   max-width: 830px;
+   min-height: 240px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-image: url("icon.png");
+   background-position: center center;
+   margin: 0 auto;
+ }
+
  .cta{
    width: 100%;
    height: auto;
    margin-top: 40px;
+
+   .tagline{
+     width: 100%;
+     color: white;
+     text-align: center;
+     font-size: 1.7rem;
+   }
  }
 
+ .blinking-cursor {
+  font-size: 50px;
+  color: white;
+  width:2.5px;
+  height: 10px;
+  background: white;
+  margin-left: 4px;
+  color: transparent;
+  -webkit-animation: 1.2s blink step-end infinite;
+  -moz-animation: 1.2s blink step-end infinite;
+  -ms-animation: 1.2s blink step-end infinite;
+  -o-animation: 1.2s blink step-end infinite;
+  animation: 1.2s blink step-end infinite;
+  content: " ";
+}
+
+@keyframes "blink" {
+  from, to {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+}
+
  .display-logo{
-   background: url("../img/logo-white.png");
-   width: 400px;
-   height: 60px;
+   //background: url("../img/logo-white.png");
    background-size: contain;
    background-repeat: no-repeat;
    margin: 0 auto;
+   font-family: 'Patua One', cursive;
+   color: white;
+   font-size: 55px;
+   text-align: center;
  }
 
  .demo-form-wrapper button{
@@ -66,13 +147,6 @@ button{
    }
  }
 
- .cta .tagline{
-   width: 100%;
-   color: white;
-   text-align: center;
-   font-size: 2rem;
- }
-
  .demo-form-wrapper{
    background-color: white;
    min-height: 400px;
@@ -102,7 +176,7 @@ button{
      min-height: 215px;
  }
 
- .howto-icon{
+/* .howto-icon{
    overflow: hidden;
    &::before{
      border:2px solid rgb(80, 177, 191);
@@ -121,13 +195,27 @@ button{
      left: 59px;
      content: " ";
   }
- }
+}*/
 
  .msg-wrapper{
    background: white;
    min-height: 300px;
    margin-top: 50px;
    border:1px solid $light-grey;
+ }
+
+ .panel-bg{
+   padding-top: 1px;
+ }
+
+ .howto-section{
+   min-height: 280px;
+   margin-top: 65px;
+ }
+
+ .howto-step{
+   font-size: 2rem;
+   line-height: 1.16;
  }
 
  /*overrides*/
