@@ -9,8 +9,8 @@ $grey-text: #6A6868;
  }
 
  .banner{
-   min-height: 410px;
-   background: -webkit-linear-gradient(#5ACCD3, #50B1BF);
+   min-height: 430px;
+   background: -webkit-linear-gradient(#50C7CE, #2A939B);
    background-size: cover;
    background-position: center center;
    padding-top: 1px;
@@ -114,6 +114,15 @@ $grey-text: #6A6868;
    text-align: center;
  }
 
+ .demo-form-wrapper{
+   background-color: white;
+   min-height: 400px;
+   margin: -230px auto 0 auto;
+   position: relative;
+   z-index: 600;
+   border: 1px solid #D2D2D2;
+ }
+
  .demo-form-wrapper button{
    margin: 0 auto 0 auto;
    display: block;
@@ -145,15 +154,6 @@ button{
    &:hover{
      background: darken(#29BCCB, 10%);
    }
- }
-
- .demo-form-wrapper{
-   background-color: white;
-   min-height: 400px;
-   margin: -220px auto 0 auto;
-   position: relative;
-   z-index: 600;
-   border: 1px solid #D2D2D2;
  }
 
  .access-code-wrapper{
@@ -295,6 +295,12 @@ button{
 
  .top-bar .name {
      height: 65px;
+
+     h1 a{
+       color: $grey-text;
+       font-family: 'Patua One', cursive;
+       font-size: 25px;
+     }
  }
 
  .top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
