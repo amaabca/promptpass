@@ -107,6 +107,7 @@ describe "secret form" do
 
   context "there are no errors on the form" do
     before(:each) do
+      stub_const("Twilio::REST::Client", FakeSms)
       click_button submit_button
     end
 
