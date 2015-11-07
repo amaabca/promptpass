@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 gem 'foreman'
 gem 'twilio-ruby'
+gem 'rollbar', '~> 2.4.0'
 
 group :test do
   gem 'simplecov', require: false
