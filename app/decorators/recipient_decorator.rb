@@ -1,0 +1,3 @@
+class RecipientDecorator < Draper::Decorator
+  delegate_all
+end

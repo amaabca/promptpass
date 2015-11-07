@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107191810) do
+ActiveRecord::Schema.define(version: 20151107194558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151107191810) do
     t.integer  "secret_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   add_index "recipients", ["secret_id"], name: "index_recipients_on_secret_id", using: :btree
