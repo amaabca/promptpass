@@ -1,0 +1,261 @@
+$button-color:#29BCCB;
+
+ .nav{
+   min-height:75px;
+   width:100%;
+   border-bottom:1px solid blue;
+ }
+
+ .banner{
+   min-height: 410px;
+   background: -webkit-linear-gradient(#5ACCD3, #50B1BF);
+   background-size: cover;
+   background-position: center center;
+   padding-top: 1px;
+   position: relative;
+   z-index: 300;
+ }
+
+ .cta{
+   width:100%;
+   height: auto;
+   margin-top: 40px;
+ }
+
+ .display-logo{
+   background: url("../img/logo-white.png");
+   width: 400px;
+   height: 60px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   margin: 0 auto;
+ }
+
+ .demo-form-wrapper button{
+   margin: 0 auto 0 auto;
+   display: block;
+   border-radius: 2px;
+   background-color: white;
+   text-transform: uppercase;
+   min-width: 100%;
+   padding: 25px;
+   color:#1CCEE0;
+   bottom:0;
+   border-top: 1px solid #D2D2D2;
+
+   &:hover{
+     background-color: #50B1BF;
+     color: white;
+  }
+ }
+
+button{
+   margin: 0 auto;
+   display: block;
+   background: $button-color;
+   color:white;
+   border-radius: 2px;
+   text-transform: uppercase;
+   min-width: 100%;
+   padding: 25px;
+
+   &:hover{
+     background: darken(#29BCCB, 10%);
+   }
+ }
+
+ .cta .tagline{
+   width: 100%;
+   color: white;
+   text-align: center;
+   font-size: 2rem;
+ }
+
+ .demo-form-wrapper{
+   background-color: white;
+   min-height: 400px;
+   margin: -220px auto 0 auto;
+   position: relative;
+   z-index: 600;
+   border: 1px solid #D2D2D2;
+ }
+
+ .access-code-wrapper{
+   margin-top: 40px;
+ }
+
+ .scene {
+     width: 100%;
+     height: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 100;
+ }
+
+ .scene-container{
+     width: 100%;
+     margin: 0 auto;
+     position: relative;
+     min-height: 215px;
+ }
+
+ .howto-icon{
+   overflow: hidden;
+   &::before{
+     border:2px solid rgb(80, 177, 191);
+     border-image-outset: 0px;
+     border-image-repeat: stretch;
+     border-image-slice: 100%;
+     border-image-source: none;
+     border-image-width: 1;
+     position: absolute;
+     width: 184.62px;
+     height: 194.62px;
+     -webkit-transform: rotate(50deg) skew(-10deg,-20deg);
+     -ms-transform: rotate(50deg) skew(-10deg,-20deg);
+     transform: rotate(50deg) skew(-10deg,-20deg);
+     top: -105px;
+     left: 59px;
+     content: " ";
+  }
+ }
+
+ /*Helper classes*/
+ .fullWidth{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+    padding: 0;
+ }
+
+ .skrollable{
+   position: absolute;
+ }
+
+ .pt1{
+     padding-top: 20px;
+ }
+
+ .p1{
+   padding: 20px;
+ }
+
+ p{
+   color: #6A6868;
+ }
+
+ .relative{
+   position: relative;
+   height: auto;
+   min-height: 200px;
+ }
+
+ /*overrides*/
+
+ input:not([type]),
+ input[type="text"],
+ input[type="password"],
+ input[type="date"],
+ input[type="datetime"],
+ input[type="datetime-local"],
+ input[type="month"],
+ input[type="week"],
+ input[type="email"],
+ input[type="number"],
+ input[type="search"],
+ input[type="tel"],
+ input[type="time"],
+ input[type="url"],
+ input[type="color"],
+ textarea{
+   width: 100%;
+   padding: 1.3em;
+   line-height: 1.4em;
+   font-size: 1.1rem;
+   border-radius: 4px;
+   border: 1px solid #e7e7e7;
+   -webkit-appearance: none;
+   box-shadow: none;
+ }
+
+ textarea{
+   min-height: 350px;
+ }
+
+ label{
+   text-transform: uppercase;
+   color: #6A6868;
+ }
+
+ ::-webkit-input-placeholder {
+    color: #D2D2D2;
+ }
+
+ :-moz-placeholder { /* Firefox 18- */
+   color: #D2D2D2;
+ }
+
+ ::-moz-placeholder {  /* Firefox 19+ */
+   color: #D2D2D2;
+ }
+
+ :-ms-input-placeholder {
+    color: #D2D2D2;
+ }
+
+ h3{
+   text-transform: uppercase;
+   font-size: 1.4rem;
+   width: auto;
+   text-align: center;
+ }
+ .top-bar{
+     height: 65px;
+     border-bottom: 1px solid #DFDFDF;
+ }
+ .top-bar .row {
+     max-width: 62.5rem;
+ }
+
+ .top-bar .title-area{
+   margin-left: 3.5%;
+ }
+
+ .top-bar-section{
+   margin-right: 3.5%;
+ }
+
+ .top-bar .name {
+     height: 65px;
+ }
+
+ .top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+     line-height: 65px;
+ }
+
+ .top-bar-section ul li > a {
+     font-size: 0.8rem;
+     text-transform: uppercase;
+ }
+
+ .top-bar-section li:not(.has-form) a:not(.button):hover {
+    color: $button-color;
+    background-color: white;
+}
+
+ @media only screen and (min-width: 58.75rem){
+  .top-bar-section li.active:not(.has-form) a:not(.button){
+      border-bottom: 1px solid #2ba6cb;
+      color: black;
+      line-height: 65px;
+      padding: 0 0.9375rem;
+  }
+
+  .top-bar-section li:not(.has-form) a:not(.button){
+      line-height: 65px;
+      color:#6A6868;
+      padding: 0 0.9375rem;
+  }
+}
