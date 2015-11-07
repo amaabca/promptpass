@@ -40,6 +40,18 @@ gem 'foreman'
 gem 'twilio-ruby'
 gem 'rollbar', '~> 2.4.0'
 
+# validation and normalization
+gem 'attribute_normalizer-extras'
+
+# better controllers
+gem 'decent_exposure'
+
+# decorators
+gem 'draper'
+
+# simple forms
+gem 'simple_form'
+
 group :test do
   gem 'simplecov', require: false
   gem 'capybara'
