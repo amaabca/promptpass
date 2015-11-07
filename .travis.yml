@@ -1,0 +1,14 @@
+language: "ruby"
+cache: bundler
+rvm:
+  - 2.2.3
+addons:
+  postgresql: "9.3"
+bundler_args: "--binstubs --without production"
+before_install:
+  - sudo sysctl -w kernel.shmall=268435456
+  - "export DISPLAY=:99.0"
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - 'sh -e /etc/init.d/xvfb start'
