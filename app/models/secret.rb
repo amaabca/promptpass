@@ -7,7 +7,7 @@ class Secret < ActiveRecord::Base
 
   validates :body, presence: true
 
-  delegate :password, to: :encryptor
+  delegate :password, :salt, to: :encryptor
 
   after_initialize do
     build_recipient unless recipient
@@ -24,6 +24,7 @@ private
   def encrypt_body
     encryptor.message = body
     self.encrypted_body = encryptor.encrypt
+    self.encryption_salt = salt
   rescue EncryptionError
     errors.add :body, I18n.t("errors.messages.encryption")
   end

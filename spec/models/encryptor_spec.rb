@@ -20,6 +20,11 @@ describe Encryptor do
       expect { subject.encrypt }.to raise_error EncryptionError
     end
 
+    it "requires a salt" do
+      subject.salt = nil
+      expect { subject.encrypt }.to raise_error EncryptionError
+    end
+
     it "returns a string" do
       expect(subject.encrypt).to be_present
     end

@@ -12,8 +12,11 @@ describe Secret do
   end
 
   describe "#encrypted_body" do
+    let(:encrypted_waffles) { "WERFLERS ER JERST PLERN FERNTERSTERC. TRER THERM!"}
+
     before(:each) do
       subject.body = "Waffles are just plain fantastic. Try them!"
+      allow(subject.encryptor).to receive(:encrypt).and_return encrypted_waffles
     end
 
     context "successfully encrypts" do
@@ -26,7 +29,11 @@ describe Secret do
       end
 
       it "is set" do
-        expect(subject.encrypted_body).to be_present
+        expect(subject.encrypted_body).to eq encrypted_waffles
+      end
+
+      it "has an associated encryption_salt" do
+        expect(subject.encryption_salt).to eq subject.encryptor.salt
       end
     end
 
@@ -42,6 +49,10 @@ describe Secret do
 
       it "is not set" do
         expect(subject.encrypted_body).to be_blank
+      end
+
+      it "has no associated encryption_salt" do
+        expect(subject.encryption_salt).to be_blank
       end
     end
   end

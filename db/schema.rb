@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107163433) do
+ActiveRecord::Schema.define(version: 20151107191810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151107163433) do
     t.text     "encrypted_body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encryption_salt"
   end
 
 end

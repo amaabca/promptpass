@@ -1,9 +1,9 @@
 class Encryptor
   include ActiveModel::Model
 
-  attr_accessor :password, :message
+  attr_accessor :password, :message, :salt
 
-  validates :password, :message, presence: true
+  validates :password, :message, :salt, presence: true
 
   def initialize(args = {})
     args = defaults.merge args
@@ -30,11 +30,7 @@ private
     ActiveSupport::KeyGenerator.new(password.to_s).generate_key(salt)
   end
 
-  def salt
-    Rails.application.secrets.secret_key_base
-  end
-
   def defaults
-    { password: rand(10000...99999) }
+    { password: rand(10000...99999), salt: SecureRandom.hex(64) }
   end
 end
