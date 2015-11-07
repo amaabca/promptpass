@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'foundation-rails'
+gem 'foreman'
+gem 'twilio-ruby'
 
 group :test do
   gem 'simplecov', require: false
