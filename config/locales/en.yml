@@ -21,6 +21,8 @@
 
 en:
   forms:
+    pages:
+      decrypted: "Your Secret Message"
     secrets:
       submit_button: "Send your secret message"
       decrypt_button: "Decrypt It!"
@@ -29,7 +31,6 @@ en:
   notifications:
     secrets:
       sent: "Shhhhh! Your secret is on the way. Don't tell anyone."
-      decrypted: "Shhh! Here's your secret!"
   errors:
     messages:
       phone_number: "must be a valid 10 digit phone number."
