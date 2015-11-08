@@ -11,7 +11,7 @@
         <%= simple_form_for sample, as: :sample, url: samples_path, method: :post do |f| %>
           <div class="row p1">
             <div class="medium-12 columns">
-              <p class="white-text text-center">Prompt Pass wants to send you a secure message</p>
+              <p class="white-text text-center">Prompt Pass wants to send you a secret message</p>
             </div>
             <%= f.simple_fields_for :recipient do |rf| %>
               <div class="large-6 columns">
@@ -45,22 +45,22 @@
       <div class="howto-step step1 large-push-4 large-4 columns">
         <%= image_tag("machine.png", class: "howto-step-img") %>
         <div class="info step1-info">
-          <h4>Step 1.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus.</p>
+          <h4>Create</h4>
+          <p>Secret is encrypted and stored with 256 bit encryption.</p>
         </div>
       </div>
       <div class="howto-step step2 large-pull-4 large-4 columns">
         <%= image_tag("email.png", class: "howto-step-img") %>
         <div class="info step2-info">
-          <h4>Step 2.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habi</p>
+          <h4>Email Key</h4>
+          <p>An email is sent containing the secret url.</p>
         </div>
       </div>
       <div class="howto-step step3 large-4 columns">
         <%= image_tag("sms.png", class: "howto-step-img") %>
         <div class="info step3-info">
-          <h4>Step 3.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habitasse platea dictumst. Proin in vulputate nisl. </p>
+          <h4>SMS Key</h4>
+          <p>An access code is sent to the recipient's phone to access your secret.</p>
         </div>
       </div>
     </div>
@@ -68,8 +68,9 @@
       <div class="howto-step step4 large-4 columns large-centered">
         <%= image_tag("laptop.png", class: "howto-step-img") %>
         <div class="info step4-info">
-          <h4>Step 4.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habitate nisl. Nam lorem tellus, luctu</p>
+          <h4>View Your Secret</h4>
+          <p>The recipient combines the secret url and the access code to view your secret.
+            <br/><br/>The secret is destroyed after viewing.</p>
         </div>
       </div>
     </div>
@@ -77,4 +78,3 @@
     <button class="mt1">Send your own secret message</button>
   </div>
 </div>
-<footer></footer>

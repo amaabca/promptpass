@@ -9,6 +9,46 @@
 
 <div class="row">
   <div class="small-10 small-centered columns msg-wrapper mt1">
-    <p> TODO </p>
+    <h4>Prompt Pass</h4>
+    <p>Send secrets with secure two factor messaging.</p>
+
+    <h4>What is two factor authentication?</h4>
+    <p>We distribute the secret url and access code using two "factors" (email and sms in our case) and by combining them you're able to access your secret. By distributing
+       this way it prevents unauthorized access who might have compromised either your email or phone.
+       <br/><br/>The official definition can be found here: <a href="https://en.wikipedia.org/wiki/Two-factor_authentication">Wikipedia Article</a>.
+    </p>
+
+    <h4>How does it work?</h4>
+    <ol>
+      <li>A secret is sent to Prompt Pass over a secure communication channel.</li>
+      <li>Prompt Pass encrypts the secret with a combination of a salt and access code.</li>
+      <li>An email and SMS containing the access code is sent to the recipient.</li>
+      <li>The recipient visits the secret url in the email and enters the access code from their phone.</li>
+      <li>Pass Prompt uses the access code and the salt to decrypt the message and display it to the recipient.</li>
+      <li>The secret message is destroyed after viewing.</li>
+    </ol>
+
+    <h4>Are my messages secure?</h4>
+    <ul>
+      <li>Secrets are encrypted with 256 bit encryption using the access code.</li>
+      <li>Only the person with the access code can decrypt the secret message.</li>
+      <li>Prompt Pass is unable to view any of the content within a secret message.</li>
+      <li>Brute force protection is applied when accessing the secret message. After 5 invalid attempts the secret is destroyed.</li>
+      <li>We do not have Google Analytics/email click or open tracking. We value your privacy.</li>
+      <li>We don't store any of the secret messages or access codes in our logs.</li>
+      <li>We're open source so you can review our code <a href="https://github.com/railsrumble/r15-team-193">here</a> to review our security for yourself.</li>
+    </ul>
+
+    <h4>Who built this awesome site?</h4>
+    <p><strong>Built for Rails Rumble 2015</strong></p>
+    <ul>
+      <li>Kathleen - <a href="https://github.com/kathleenAMA">Github</a></li>
+      <li>Michael - <a href="https://github.com/mvandenbeuken">Github</a></li>
+      <li>Ruben - <a href="https://github.com/rubene">Github</a></li>
+      <li>Ryan - <a href="https://github.com/ryanjones">Github</a></li>
+    </ul>
+
+    <h4>How do I contact Prompt Pass?</h4>
+    <p>Find an issue/bug or just have questions in general? Submit an issue <a href="https://github.com/railsrumble/r15-team-193/issues">here</a>.</p>
   </div>
 </div>
