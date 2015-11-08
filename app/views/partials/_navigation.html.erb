@@ -1,15 +1,14 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">Prompt Pass</a></h1>
+      <h1><%= link_to "Prompt Pass", root_path %></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
   <div class="top-bar-section">
     <ul class="right">
-      <li><%= link_to 'About'%></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Send a secret</a></li>
+      <li><%= link_to "Send a secret", create_secret_path %></li>
+      <li><%= link_to 'About', about_path %></li>
     </ul>
   </div>
 </nav>
