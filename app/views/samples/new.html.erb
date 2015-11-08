@@ -11,7 +11,7 @@
         <%= simple_form_for sample, as: :sample, url: samples_path, method: :post, html: { class: "pt1" } do |f| %>
           <div class="row p1">
             <div class="medium-12 columns">
-              <p class="white-text text-center">Prompt Pass wants to send you a secure message</p>
+              <p class="white-text text-center">Prompt Pass wants to send you a secret message</p>
             </div>
             <%= f.simple_fields_for :recipient do |rf| %>
               <div class="large-6 columns">
@@ -60,7 +60,7 @@
         <%= image_tag("sms.png", class: "howto-step-img") %>
         <div class="info step3-info">
           <h4>SMS Key</h4>
-          <p>A secret access code is sent to your phone to access your secret.</p>
+          <p>An access code is sent to the recipient's phone to access your secret.</p>
         </div>
       </div>
     </div>
@@ -69,8 +69,8 @@
         <%= image_tag("laptop.png", class: "howto-step-img") %>
         <div class="info step4-info">
           <h4>View Your Secret</h4>
-          <p>Combine the secret url and the secret access code. 
-            <br/><br/>Your message is destroyed after viewing.</p>
+          <p>The recipient combines the secret url and the access code to view your secret. 
+            <br/><br/>The secret is destroyed after viewing.</p>
         </div>
       </div>
     </div>
