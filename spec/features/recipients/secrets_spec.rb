@@ -73,7 +73,6 @@ describe "recipient secret form" do
       end
 
       it "does show us a success message" do
-        save_and_open_page
         expect(page).to have_content I18n.t("forms.pages.decrypted")
       end
     end
