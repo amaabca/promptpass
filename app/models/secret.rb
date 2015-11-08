@@ -35,10 +35,10 @@ private
     self.body = encryptor.decrypt
   rescue ActiveSupport::MessageVerifier::InvalidSignature, EncryptionError
     update_column(:decryption_attempt, self.decryption_attempt += 1)
-    description_errors
+    description_error
   end
   
-  def description_errors
+  def description_error
     if decryption_attempt >= 5
       errors.add :password, I18n.t("errors.messages.decryption_destroy")
       self.destroy
