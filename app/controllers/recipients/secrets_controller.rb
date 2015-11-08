@@ -9,9 +9,14 @@ module Recipients
       raise ActiveRecord::RecordNotFound if recipient.blank?
     end
 
+    before_action do
+      secret.destroy if secret.expired?
+    end
+
     def create
       if secret.decrypt
         tidy_up
+        secret.destroy if secret.destroy?
         render :create
       else
         render :new
