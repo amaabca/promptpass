@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'samples#new'
   get 'create_secret', to: 'secrets#new'
   get 'about', to: 'pages#about'
+
   resources :secrets, only: [:new, :create]
+  resources :samples, only: [:new, :create]
 
   resources :recipients, only: [] do
     resource :secrets, only: [:new, :create], module: :recipients
