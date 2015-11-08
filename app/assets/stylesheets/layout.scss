@@ -3,7 +3,6 @@ $light-grey: #DFDFDF;
 $grey-text: #6A6868;
 
  .banner{
-   min-height: 430px;
    background: asset-url("traffic-bg.jpg");
    background-size: cover;
    background-position: center center;
@@ -102,6 +101,7 @@ $grey-text: #6A6868;
    color: white;
    font-size: 70px;
    text-align: center;
+   line-height: 63px;
  }
 
  .demo-form-wrapper{
@@ -151,43 +151,6 @@ button{
    margin-top: 40px;
  }
 
- .scene {
-     width: 100%;
-     height: 100%;
-     position: fixed;
-     top: 0;
-     left: 0;
-     z-index: 100;
- }
-
- .scene-container{
-     width: 100%;
-     margin: 0 auto;
-     position: relative;
-     min-height: 215px;
- }
-
-/* .howto-icon{
-   overflow: hidden;
-   &::before{
-     border:2px solid rgb(80, 177, 191);
-     border-image-outset: 0px;
-     border-image-repeat: stretch;
-     border-image-slice: 100%;
-     border-image-source: none;
-     border-image-width: 1;
-     position: absolute;
-     width: 184.62px;
-     height: 194.62px;
-     -webkit-transform: rotate(50deg) skew(-10deg,-20deg);
-     -ms-transform: rotate(50deg) skew(-10deg,-20deg);
-     transform: rotate(50deg) skew(-10deg,-20deg);
-     top: -105px;
-     left: 59px;
-     content: " ";
-  }
-}*/
-
  .msg-wrapper{
    background: white;
    min-height: 300px;
@@ -199,15 +162,246 @@ button{
    padding-top: 1px;
  }
 
- .howto-section{
-   min-height: 280px;
-   margin-top: 65px;
+ .steps-pipe{
+   position: absolute;
+   top: -2px;
+ }
+
+ .howto-container {
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
+   padding: 1px;
+ }
+
+ .howto-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
  }
 
  .howto-step{
-   font-size: 2rem;
-   line-height: 1.16;
+   z-index: 15;
+   position: relative;
+   height: auto;
+
+   img{
+    width: 170px;
+    height: auto;
+   }
  }
+
+ .step1{
+    margin: 180px auto 0 auto;
+
+    img{
+      width:220px;
+    }
+ }
+
+ .step2{
+    margin: 210px auto 0 -90px;
+ }
+
+ .step3{
+    margin: 210px -90px 0 auto;
+ }
+
+ .step4{
+   margin: 0 auto 0 auto;
+
+   img{
+     width: 240px;
+   }
+ }
+
+ .step1-info{
+    margin: 20px auto 0 auto;
+ }
+
+ .step2-info{
+    margin: 80px auto 0 auto;
+ }
+
+ .step3-info{
+    margin: 80px auto 0 auto;
+ }
+
+
+ .info{
+   min-height: 180px;
+   border: 2px solid #C2C2C2;
+   background: white;
+   padding: 12px;
+
+   p{
+     font-size: 0.875rem;
+   }
+
+   h4{
+     text-transform: uppercase;
+     font-size: 1rem;
+     color: $grey-text;
+   }
+ }
+
+/*animations*/
+
+.howto-icon{
+  position: absolute;
+  width: 70px;
+  height: 90px;
+  left: 50%;
+  margin-left: -35px;
+  z-index: 14;
+}
+
+.secret-icon{
+  -webkit-animation: secret 4s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: secret 4s infinite; /* Chrome, Safari, Opera */
+  animation: secret 4s infinite;
+}
+
+.binary-icon{
+  width: 135px;
+  margin-left: -55px;
+  top: 291px;
+  -webkit-animation: binary 4s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binary 4s infinite; /* Chrome, Safari, Opera */
+  animation: binary 4s infinite;
+
+  -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
+  animation-delay: 1.6s;
+}
+
+.binary-icon2{
+  width: 135px;
+  margin-left: -55px;
+  top: 291px;
+  -webkit-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
+  animation: binaryright 4s infinite;
+
+  -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
+  animation-delay: 1.6s;
+}
+
+.key-icon{
+  width: 60px;
+  margin-left: 328px;
+  top: 284px;
+  -webkit-animation: key 4s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: key 4s infinite; /* Chrome, Safari, Opera */
+  animation: key 4s infinite;
+}
+
+.lock-icon{
+  width: 60px;
+  top: 284px;
+  -webkit-animation: lock 4s infinite; /* Chrome, Safari, Opera */
+  -moz-animation: lock 4s infinite; /* Chrome, Safari, Opera */
+  animation: lock 4s infinite;
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes secret {
+    from {top: -90px;}
+    to {top: 200px;}
+}
+
+@keyframes secret {
+    from {top: -90px;}
+    to {top: 200px;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes binary {
+    from {margin-left: -55px;}
+    to {margin-left: -415px;}
+}
+
+@keyframes binary {
+    from {margin-left: -55px;}
+    to {margin-left: -415px;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes binaryright {
+    from {margin-left: -55px;}
+    to {margin-left: 295px;}
+}
+
+@keyframes binaryright {
+    from {margin-left: -65px;}
+    to {margin-left: 295px;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes key {
+  0% {
+    top: 284;
+    left: 395px;
+  }
+  60% {
+    top: 733px;
+    left: 395px;
+  }
+  100%{
+    top: 733px;
+    left: 55px;
+  }
+}
+
+@keyframes key {
+  0% {
+    top: 284;
+    left: 395px;
+  }
+  60% {
+    top: 733px;
+    left: 395px;
+  }
+  100%{
+    top: 733px;
+    left: 55px;
+  }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes lock {
+  0% {
+    top: 284;
+    left: 55px;
+  }
+  60% {
+    top: 733px;
+    left: 55px;
+  }
+  100%{
+    top: 733px;
+    left: 105px;
+  }
+}
+
+@keyframes lock {
+  0% {
+    top: 284;
+    left: 50px;
+  }
+  60% {
+    top: 725px;
+    left: 50px;
+  }
+  100%{
+    top: 725px;
+    left: 370px;
+  }
+}
+
+
 
  /*overrides*/
 
@@ -347,3 +541,21 @@ button{
       padding: 0 0.9375rem;
   }
 }
+
+
+ @media only screen and (max-width: 990px){
+    .step2, .step3, .step1 {
+      margin: 20px auto 0 auto;
+    }
+ }
+
+ @media only screen and (max-width: 640px){
+   .banner{
+      min-height: 830px;
+   }
+
+    .fullHeight {
+      min-height: 840px;
+      height: 100%;
+  }
+ }
