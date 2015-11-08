@@ -652,4 +652,8 @@ select{
       min-height: 840px;
       height: 100%;
   }
+
+  textarea {
+    height: 250px !important;
+  }
  }
