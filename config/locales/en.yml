@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   forms:
     secrets:
       submit_button: "Send your secret message"
@@ -33,3 +32,6 @@ en:
       email: "must be a valid email address."
       blank: "is a required field."
       encryption: "we were unable to encrypt the message."
+  mailer:
+    new_secret_email:
+      subject: "You got a new secret."

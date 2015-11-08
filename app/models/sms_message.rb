@@ -4,17 +4,19 @@ class SmsMessage
 
   validates :recipient_number, format: { with: /\A\d+\z/ }, presence: true, length: { is: 10 }
 
-  attr_accessor :prompt_pass_number, :recipient_number, :secret_code
+  attr_accessor :prompt_pass_number, :recipient_number, :secret_code, :twilio_sid, :twilio_token
 
   def initialize(args = {})
     self.prompt_pass_number = '+15873175563'
+    self.twilio_sid = Rails.configuration.twilio_sid
+    self.twilio_token = Rails.configuration.twilio_token
     self.recipient_number = args.fetch(:recipient_number)
 
     raise "Validation error: #{errors.full_messages.join(",")}" unless valid?
   end
 
   def send_message
-    client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
+    client = Twilio::REST::Client.new twilio_sid, twilio_token
     client.messages.create(
       from: prompt_pass_number,
       to: "+1#{recipient_number}",
