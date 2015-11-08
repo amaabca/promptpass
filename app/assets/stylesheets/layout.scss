@@ -4,7 +4,7 @@ $grey-text: #6A6868;
 
  .banner{
    min-height: 430px;
-   background: -webkit-linear-gradient(#50C7CE, #2A939B);
+   background: url("traffic-bg.jpg");
    background-size: cover;
    background-position: center center;
    padding-top: 1px;
@@ -26,7 +26,7 @@ $grey-text: #6A6868;
  .cta{
    width: 100%;
    height: auto;
-   margin-top: 80px;
+   margin-top: 130px;
 
    .tagline{
      width: 100%;
@@ -97,23 +97,22 @@ $grey-text: #6A6868;
 }
 
  .display-logo{
-   //background: url("../img/logo-white.png");
-   background-size: contain;
-   background-repeat: no-repeat;
    margin: 0 auto;
    font-family: 'Patua One', cursive;
    color: white;
-   font-size: 55px;
+   font-size: 70px;
    text-align: center;
  }
 
  .demo-form-wrapper{
-   background-color: white;
-   min-height: 400px;
-   margin: -200px auto 0 auto;
+   min-height: 280px;
+   margin: 60px auto 0 auto;
    position: relative;
    z-index: 600;
-   border: 1px solid #D2D2D2;
+   border: 1px solid white;
+   border-radius: 4px;
+   padding: 10px;
+   background: rgba(7, 39, 63, 0.4)
  }
 
  .demo-form-wrapper button{
@@ -122,14 +121,13 @@ $grey-text: #6A6868;
    border-radius: 2px;
    background-color: white;
    text-transform: uppercase;
-   min-width: 100%;
-   padding: 25px;
-   color:#1CCEE0;
+   min-width: 93%;
+   padding: 20px;
+   color: #083B6E;
    bottom: 0;
-   border-top: 1px solid #D2D2D2;
 
    &:hover{
-     background-color: #50B1BF;
+     background-color: #083B6E;
      color: white;
   }
  }
