@@ -63,14 +63,14 @@ describe "recipient secret form" do
             expect(page).to_not have_content I18n.t("forms.pages.decrypted")
           end
         end
-        
+
         context "has been filled out with an invalid value 5 times" do
           it "shows that the message has been dsetroyed" do
             5.times do
               fill_in "secret_password", with: invalid_password
               click_button decrypt_button
             end
-            
+
             within("div.secret_password") do
               expect(page).to have_content I18n.t("errors.messages.decryption_destroy")
             end
@@ -88,14 +88,18 @@ describe "recipient secret form" do
     context "there are no errors on the form" do
       before(:each) do
         fill_in "secret_password", with: valid_password
-        click_button decrypt_button
       end
 
       it "does show us a success message" do
+        click_button decrypt_button
         expect(page).to have_content I18n.t("forms.pages.decrypted")
       end
 
       context "destroy after view" do
+        before(:each) do
+          click_button decrypt_button
+        end
+
         it "destroys the secret record" do
           expect(Secret.all).to be_empty
         end
@@ -103,6 +107,24 @@ describe "recipient secret form" do
         it "users revisit the page" do
           visit recipient_secret_url
           expect(page.driver.response.status).to eq 404
+        end
+      end
+
+      context "there is a sender" do
+        it "sends a receipt email" do
+          expect(SecretMailer).to receive(:secret_received).and_call_original
+          click_button decrypt_button
+        end
+      end
+
+      context "there is no sender" do
+        before(:each) do
+          secret.sender.destroy
+        end
+
+        it "does not send a receipt email" do
+          expect(SecretMailer).to_not receive(:secret_received).and_call_original
+          click_button decrypt_button
         end
       end
     end

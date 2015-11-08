@@ -7,8 +7,8 @@
         <div class="tagline">Send secrets with secure two factor messaging</div>
       </div>
       <%= flash_presenter.confirmation %>
-      <div class="large-5 medium-7 small-11 demo-form-wrapper">
-        <%= simple_form_for sample, as: :sample, url: samples_path, method: :post, html: { class: "pt1" } do |f| %>
+      <div class="large-6 medium-7 small-11 demo-form-wrapper">
+        <%= simple_form_for sample, as: :sample, url: samples_path, method: :post do |f| %>
           <div class="row p1">
             <div class="medium-12 columns">
               <p class="white-text text-center">Prompt Pass wants to send you a secret message</p>
@@ -74,7 +74,8 @@
         </div>
       </div>
     </div>
-
     <%= image_tag("pipes.png", class: "howto-bg") %>
+    <button class="mt1">Send your own secret message</button>
   </div>
 </div>
+<footer></footer>

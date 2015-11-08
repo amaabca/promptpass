@@ -60,6 +60,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'webmock'
   gem 'factory_girl_rails'
+  gem 'timecop'
 end
 
 group :development, :test do
