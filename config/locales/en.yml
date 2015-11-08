@@ -49,4 +49,4 @@ en:
     secret_received:
       subject: "Prompt Pass | Your secret message has been received."
   sms:
-    text: "Prompt Pass secret access code:"
+    text: "Prompt Pass access code:"
