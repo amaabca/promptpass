@@ -32,7 +32,7 @@ en:
       submit_button: "Send Me The Message Now!"
   notifications:
     secrets:
-      sent: "Shhhhh! Your secret is on the way. Don't tell anyone."
+      sent: "Your secret has been successfully sent. The recipient will receive an email with a link and an SMS message with an access code in the next few minutes."
       decrypted: "Shhh! Here's your secret!"
   errors:
     messages:

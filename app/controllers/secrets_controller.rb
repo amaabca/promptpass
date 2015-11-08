@@ -3,7 +3,7 @@ class SecretsController < ApplicationController
 
   def create
     if secret.save
-      render :create
+      redirect_to new_secret_path, notice: I18n.t("notifications.secrets.sent") and return
     else
       render :new
     end
