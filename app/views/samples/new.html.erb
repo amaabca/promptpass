@@ -13,11 +13,11 @@
               <p class="white-text text-center">Prompt Pass wants to send you a secure message</p>
             </div>
             <%= f.simple_fields_for :recipient do |rf| %>
-              <div class="medium-6 columns">
+              <div class="large-6 columns">
                 <label class="white-text">Your Email</label>
                 <%= rf.input :email, type: 'email', placeholder: "example@example.com", label: false %>
               </div>
-              <div class="medium-6 columns">
+              <div class="large-6 columns">
                 <label class="white-text">Your Phone Number</label>
                 <%= rf.input :phone_number, type: 'tel', placeholder: "555-555-5555", label: false %>
               </div>
@@ -34,47 +34,45 @@
   </div>
 </div>
 <div class="panel-bg fullWidth">
-  <div class="row">
-    <div class="large-12 columns pt1">
-      <h3>How it works</h3>
-    </div>
-  </div>
-  <div class="row pt1 howto-section" style="position:relative;">
-    <div class="medium-4 columns">
-      <p class="howto-step">Write the secret information that you want to send to someone.</p>
-    </div>
-    <div class="medium-4 columns">
-      <div class="scene-container">
-        <div style="width: 100%; height: 197px; z-index: 900; border: 1px solid #50B1BF; border-radius: 3px;" data-500="top:3%" data-1000="top:100%;" class="howto-icon">
-          <div class="p1">Whoa, checkout this cool message that I can send to you through PromptPass! And it's totally secure!</div>
-          <button class="fullWidth p1" data-500="opacity:1; display:block" data-800="opacity:0; display:none">Send your message!</button>
+  <div class="howto-container">
+    <div class="secret-icon howto-icon"><%= image_tag("secret.png", class: "howto-icon-img") %></div>
+    <div class="binary-icon howto-icon"><%= image_tag("binary.png", class: "howto-icon-img") %></div>
+    <div class="binary-icon2 howto-icon"><%= image_tag("binary.png", class: "howto-icon-img") %></div>
+    <div class="key-icon howto-icon"><%= image_tag("key.png", class: "howto-icon-img") %></div>
+    <div class="lock-icon howto-icon"><%= image_tag("lock.png", class: "howto-icon-img") %></div>
+    <div class="row">
+      <div class="howto-step step1 large-push-4 large-4 columns">
+        <%= image_tag("machine.png", class: "howto-step-img") %>
+        <div class="info step1-info">
+          <h4>Step 1.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus.</p>
+        </div>
+      </div>
+      <div class="howto-step step2 large-pull-4 large-4 columns">
+        <%= image_tag("email.png", class: "howto-step-img") %>
+        <div class="info step2-info">
+          <h4>Step 2.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habi</p>
+        </div>
+      </div>
+      <div class="howto-step step3 large-4 columns">
+        <%= image_tag("sms.png", class: "howto-step-img") %>
+        <div class="info step3-info">
+          <h4>Step 3.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habitasse platea dictumst. Proin in vulputate nisl. </p>
         </div>
       </div>
     </div>
-    <div class="medium-4 columns">
-      <p>You can send whatever you want. Have a password you need to share with a client? Your Grandma's secret recipes? Doesn't matter what it is, all you have to know is that it will be secure.</p>
+    <div class="row">
+      <div class="howto-step step4 large-4 columns large-centered">
+        <%= image_tag("laptop.png", class: "howto-step-img") %>
+        <div class="info step4-info">
+          <h4>Step 4.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in ultricies lectus. In hac habitate nisl. Nam lorem tellus, luctu</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel-bg fullWidth yellow-bg">
-  <div class="row pt1 howto-section" style="position:relative;">
-    <div class="medium-4 columns">
-      <p class="howto-step white-text">Pick an email & phone number to send the link and message to.</p>
-    </div>
-    <div class="medium-4 columns"></div>
-    <div class="medium-4 columns">
-      <p class="white-text">As soon as you send your message we will fire off an email to the receiver with a link to your message. We will also send a SMS authentication code to their phone which they'll need to access the secret message.</p>
-    </div>
-  </div>
-</div>
-<div class="panel-bg fullWidth red-bg">
-  <div class="row pt1 howto-section" style="position:relative;">
-    <div class="medium-4 columns">
-      <p class="howto-step white-text">Wait for your recipient to view your secret message.</p>
-    </div>
-    <div class="medium-4 columns"></div>
-    <div class="medium-4 columns">
-      <p class="white-text">The person receiving the message can only view the link one time. Once they have view the link the information is destroyed to ensure your secret stays secret.</p>
-    </div>
+
+    <%= image_tag("pipes.png", class: "howto-bg") %>
   </div>
 </div>
