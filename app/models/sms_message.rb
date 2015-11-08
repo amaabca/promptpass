@@ -17,7 +17,7 @@ class SmsMessage
     client.messages.create(
       from: prompt_pass_number,
       to: "+1#{recipient_number}",
-      body: "Prompt Pass secret access code: #{secret_code}"
+      body: "#{I18n.t("sms.text")} #{secret_code}"
     )
   end
 

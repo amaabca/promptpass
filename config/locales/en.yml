@@ -45,3 +45,5 @@ en:
   mailer:
     new_secret_email:
       subject: "Pass Prompt | You've been sent a secret message."
+  sms:
+    text: "Prompt Pass secret access code:"
