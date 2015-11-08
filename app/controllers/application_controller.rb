@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   expose(:flash_presenter) { flash.decorate }
 
   def render_404
-    head :not_found
+    render "shared/not_found", status: :not_found and return
   end
 end
