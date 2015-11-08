@@ -35,6 +35,8 @@ en:
   notifications:
     secrets:
       sent: "Your secret has been successfully sent. The recipient will receive an email with a link and an SMS message with an access code in the next few minutes."
+    samples:
+      sent: "We've sent you a secret message. You will receive an email with a secret url and an SMS message with an access code in the next few minutes."
   errors:
     messages:
       phone_number: "must be a valid 10 digit phone number."
