@@ -91,7 +91,7 @@ describe "sample form" do
     end
 
     it "shows us a success message" do
-      expect(page).to have_content I18n.t("notifications.secrets.sent")
+      expect(page).to have_content I18n.t("notifications.samples.sent")
     end
   end
 end
