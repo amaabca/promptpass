@@ -20,9 +20,6 @@ RSpec.describe SecretMailer, type: :mailer do
       it "render the secret url" do
         expect(mail.body.encoded).to match "http://localhost:3000/recipients/#{secret.recipient.token}"
       end
-
-      xit "render the secret time span" do
-      end
     end
   end
 

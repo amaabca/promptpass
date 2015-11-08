@@ -69,13 +69,13 @@
         <%= image_tag("laptop.png", class: "howto-step-img") %>
         <div class="info step4-info">
           <h4>View Your Secret</h4>
-          <p>The recipient combines the secret url and the access code to view your secret. 
+          <p>The recipient combines the secret url and the access code to view your secret.
             <br/><br/>The secret is destroyed after viewing.</p>
         </div>
       </div>
     </div>
     <%= image_tag("pipes.png", class: "howto-bg") %>
-    <button class="mt1">Send your own secret message</button>
+    <%= link_to "<button class='mt1'>Send your own secret message</button>".html_safe,  create_secret_path %>
   </div>
 </div>
 <footer></footer>
