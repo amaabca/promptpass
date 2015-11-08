@@ -90,4 +90,19 @@ describe Recipient do
     end
   end
 
+  describe "#token_id" do
+    context "token is set" do
+      it "returns the first 5 chars of the token" do
+        subject.valid?
+        expect(subject.token_id).to eq subject.token[0..5]
+      end
+    end
+
+    context "token is not set" do
+      it "returns the first 5 chars of the token" do
+        expect(subject.token_id).to eq nil
+      end
+    end
+  end
+
 end

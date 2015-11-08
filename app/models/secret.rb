@@ -55,6 +55,6 @@ private
   end
 
   def send_sms
-    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password).send_message
+    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password, token_id: recipient.token_id).send_message
   end
 end

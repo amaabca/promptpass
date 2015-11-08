@@ -19,4 +19,8 @@ class Recipient < ActiveRecord::Base
   before_validation do
     self.token = SecureRandom.hex 32
   end
+
+  def token_id
+    token[0..5] if token.present?
+  end
 end
