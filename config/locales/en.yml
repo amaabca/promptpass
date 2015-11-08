@@ -24,6 +24,8 @@ en:
     secrets:
       submit_button: "Send your secret message"
       decrypt_button: "Decrypt It!"
+    samples:
+      submit_button: "Send me the message now!"
   notifications:
     secrets:
       sent: "Shhhhh! Your secret is on the way. Don't tell anyone."

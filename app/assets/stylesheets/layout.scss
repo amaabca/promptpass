@@ -4,7 +4,7 @@ $grey-text: #6A6868;
 
  .banner{
    min-height: 430px;
-   background: url("traffic-bg.jpg");
+   background: asset-url("traffic-bg.jpg");
    background-size: cover;
    background-position: center center;
    padding-top: 1px;

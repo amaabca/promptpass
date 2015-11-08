@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'samples#new'
   get 'code-auth', to: 'pages#code-auth'
   get 'form', to: 'pages#form'
   get 'view-msg', to: 'pages#view-msg'
   resources :secrets, only: [:new, :create]
+  resources :samples, only: [:new, :create]
 
   resources :recipients, only: [] do
     resource :secrets, only: [:new, :create], module: :recipients
