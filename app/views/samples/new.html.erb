@@ -6,6 +6,7 @@
         <div class="display-logo">Prompt Pass<span class="blinking-cursor">|</span></div>
         <div class="tagline">Send secrets with secure two factor messaging</div>
       </div>
+      <%= flash_presenter.confirmation %>
       <div class="large-5 medium-7 small-11 demo-form-wrapper">
         <%= simple_form_for sample, as: :sample, url: samples_path, method: :post, html: { class: "pt1" } do |f| %>
           <div class="row p1">
