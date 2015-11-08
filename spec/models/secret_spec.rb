@@ -42,7 +42,7 @@ describe Secret do
       end
 
       it "calls the notify recipient" do
-        subject.should_receive(:notify_recipient).once
+        expect(subject).to receive(:notify_recipient).once
         subject.save
       end
     end

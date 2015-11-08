@@ -43,7 +43,7 @@ describe "recipient secret form" do
           end
 
           it "does not show us a success message" do
-            expect(page).to_not have_content I18n.t("notifications.secrets.decrypted")
+            expect(page).to_not have_content I18n.t("forms.pages.decrypted")
           end
         end
 
@@ -60,7 +60,7 @@ describe "recipient secret form" do
           end
 
           it "does not show us a success message" do
-            expect(page).to_not have_content I18n.t("notifications.secrets.decrypted")
+            expect(page).to_not have_content I18n.t("forms.pages.decrypted")
           end
         end
       end
@@ -73,7 +73,7 @@ describe "recipient secret form" do
       end
 
       it "does show us a success message" do
-        expect(page).to have_content I18n.t("notifications.secrets.decrypted")
+        expect(page).to have_content I18n.t("forms.pages.decrypted")
       end
     end
   end

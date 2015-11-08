@@ -21,6 +21,8 @@
 
 en:
   forms:
+    pages:
+      decrypted: "Your Secret Message"
     placeholders:
       phone_number: "555-555-5555"
       email: "example@example.com"
@@ -33,7 +35,6 @@ en:
   notifications:
     secrets:
       sent: "Your secret has been successfully sent. The recipient will receive an email with a link and an SMS message with an access code in the next few minutes."
-      decrypted: "Shhh! Here's your secret!"
   errors:
     messages:
       phone_number: "must be a valid 10 digit phone number."
