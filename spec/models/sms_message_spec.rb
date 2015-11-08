@@ -3,7 +3,7 @@ describe SmsMessage do
     it "should pass" do
       stub_const("Twilio::REST::Client", FakeSms)
       message = SmsMessage.new({recipient_number:'7809072962'})
-      expect(message.send_message.last.from[:body]).to eq "Promptpass secret code: #{message.secret_code}"
+      expect(message.send_message.last.from[:body]).to eq "Prompt Pass secret access code: #{message.secret_code}"
     end
 
     it "should fail" do
