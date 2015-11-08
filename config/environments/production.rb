@@ -1,5 +1,8 @@
 Rails.application.configure do
   config.force_ssl = true
+  config.middleware.insert_before ActionDispatch::SSL, Rack::HostRedirect, 
+                                  { 'the-breakfast-troopers.r15.railsrumble.com' => 'www.prompt-pass.com',
+                                    'aqueous-ocean-5935.herokuapp.com' => 'www.prompt-pass.com' }
 
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rack-host-redirect'
+
 gem 'foundation-rails'
 gem 'foreman'
 gem 'twilio-ruby'
