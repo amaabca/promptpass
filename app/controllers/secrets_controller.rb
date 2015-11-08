@@ -24,6 +24,6 @@ private
 
   def expiry_time
     expiry = params[:secret][:expiry]
-    return Time.now + expiry.to_i.hours if expiry.present?
+    Time.now + expiry.to_i.hours if expiry.present?
   end
 end

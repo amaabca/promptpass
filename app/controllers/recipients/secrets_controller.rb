@@ -16,7 +16,6 @@ module Recipients
     def create
       if secret.decrypt
         tidy_up
-        secret.destroy if secret.destroy?
         render :create
       else
         render :new
@@ -27,7 +26,7 @@ module Recipients
 
     def tidy_up
       secret.sender.try(:send_email)
-      secret.destroy unless Rails.env.development?
+      secret.destroy if secret.destroy?
     end
 
     def secret_params

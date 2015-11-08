@@ -157,5 +157,17 @@ describe "secret form" do
         expect(page).to have_content I18n.t("notifications.secrets.sent")
       end
     end
+
+    context "there is a expiry time" do
+      before(:each) do
+        find("a[href='#advanced_options']").click
+        select "2 Hours", from: "secret_expiry"
+        click_button submit_button
+      end
+
+      it "shows us a success message" do
+        expect(page).to have_content I18n.t("notifications.secrets.sent")
+      end
+    end
   end
 end
