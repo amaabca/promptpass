@@ -13,6 +13,23 @@ $animation-time:4s;
    z-index: 300;
  }
 
+.page-banner{
+    background: asset-url("traffic-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 250px;
+
+    h3{
+      color: white;
+      font-size: 2.7rem;
+      text-align: center;
+      font-family: 'Patua One', cursive;
+      text-transform: none;
+      display: block;
+      margin-top: 120px;
+    }
+  }
+
  .banner-icon{
    min-width: 300px;
    max-width: 830px;
