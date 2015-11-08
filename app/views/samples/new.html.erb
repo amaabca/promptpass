@@ -31,10 +31,11 @@
             </div>
           <% end %>
       </div>
+      <div class="howto-cta"><a href="#howitworks" id="howitworks"><p>See how it works</p></a></div>
     </div>
   </div>
 </div>
-<div class="panel-bg fullWidth">
+<div class="panel-bg fullWidth btm-m">
   <div class="howto-container">
     <div class="secret-icon howto-icon"><%= image_tag("secret.png", class: "howto-icon-img") %></div>
     <div class="binary-icon howto-icon"><%= image_tag("binary.png", class: "howto-icon-img") %></div>
@@ -69,13 +70,12 @@
         <%= image_tag("laptop.png", class: "howto-step-img") %>
         <div class="info step4-info">
           <h4>View Your Secret</h4>
-          <p>The recipient combines the secret url and the access code to view your secret. 
+          <p>The recipient combines the secret url and the access code to view your secret.
             <br/><br/>The secret is destroyed after viewing.</p>
         </div>
       </div>
     </div>
     <%= image_tag("pipes.png", class: "howto-bg") %>
-    <button class="mt1">Send your own secret message</button>
+    <%= link_to "<button class='mt1'>Send your own secret message</button>".html_safe,  create_secret_path %>
   </div>
 </div>
-<footer></footer>

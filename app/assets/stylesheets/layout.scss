@@ -13,6 +13,23 @@ $animation-time:4s;
    z-index: 300;
  }
 
+.page-banner{
+    background: asset-url("traffic-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 250px;
+
+    h3{
+      color: white;
+      font-size: 2.7rem;
+      text-align: center;
+      font-family: 'Patua One', cursive;
+      text-transform: none;
+      display: block;
+      margin-top: 120px;
+    }
+  }
+
  .banner-icon{
    min-width: 300px;
    max-width: 830px;
@@ -34,11 +51,12 @@ $animation-time:4s;
      color: white;
      text-align: center;
      font-size: 1.7rem;
+     margin-top: 10px;
    }
  }
 
  .blinking-cursor {
-  font-size: 35px;
+  font-size: 46px;
   color: transparent;
   width:2.5px;
   height: 10px;
@@ -50,6 +68,7 @@ $animation-time:4s;
   -o-animation: 1.2s blink step-end infinite;
   animation: 1.2s blink step-end infinite;
   content: " ";
+  margin-top: -10px;
 }
 
 @keyframes "blink" {
@@ -169,6 +188,25 @@ button{
    top: -2px;
  }
 
+ .howto-cta {
+   position: absolute;
+   bottom: 60px;
+   width: 200px;
+   left: 50%;
+   margin-left: -100px;
+   text-align: center;
+   padding: 10px;
+   font-size: 2rem;
+   border: 1px solid white;
+
+    p{
+      margin-bottom: 0;
+      text-decoration: underline;
+      font-size: 1rem;
+      color: white;
+    }
+  }
+
  .howto-container {
    max-width: 800px;
    margin: 0 auto;
@@ -237,7 +275,7 @@ button{
 
 
  .info{
-   min-height: 180px;
+   min-height: 120px;
    border: 2px solid #C2C2C2;
    background: white;
    padding: 12px;
@@ -252,6 +290,8 @@ button{
      color: $grey-text;
    }
  }
+
+
 
 /*animations*/
 
@@ -407,8 +447,6 @@ button{
   }
 }
 
-
-
  /*overrides*/
 
  input:not([type]),
@@ -440,6 +478,10 @@ button{
  textarea{
    min-height: 350px;
  }
+
+select{
+  background:white;
+}
 
  label{
    text-transform: uppercase;
@@ -537,6 +579,30 @@ button{
 .top-bar.expanded {
     background: white;
     height: auto;
+}
+
+.accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
+    background: transparent;
+}
+
+.accordion .accordion-navigation.active > a, .accordion dd.active > a {
+    background: transparent;
+}
+
+.accordion .accordion-navigation > a, .accordion dd > a{
+    background: transparent;
+    color: #083B6E;
+    padding: 0;
+    text-decoration: underline;
+    text-align: right;
+}
+
+.accordion .accordion-navigation > .content, .accordion dd > .content{
+    padding: 0;
+}
+
+.accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
+    background: transparent;
 }
 
 @media only screen and (min-width: 40.0625em){
