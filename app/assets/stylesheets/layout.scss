@@ -2,6 +2,8 @@ $button-color: #29BCCB;
 $light-grey: #DFDFDF;
 $grey-text: #6A6868;
 
+$animation-time:4s;
+
  .banner{
    background: asset-url("traffic-bg.jpg");
    background-size: cover;
@@ -259,18 +261,18 @@ button{
 }
 
 .secret-icon{
-  -webkit-animation: secret 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: secret 4s infinite; /* Chrome, Safari, Opera */
-  animation: secret 4s infinite;
+  -webkit-animation: secret $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: secret $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: secret $animation-time infinite;
 }
 
 .binary-icon{
   width: 135px;
   margin-left: -55px;
   top: 291px;
-  -webkit-animation: binary 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: binary 4s infinite; /* Chrome, Safari, Opera */
-  animation: binary 4s infinite;
+  -webkit-animation: binary $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binary $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: binary $animation-time infinite;
 
   -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
   animation-delay: 1.6s;
@@ -280,9 +282,9 @@ button{
   width: 135px;
   margin-left: -55px;
   top: 291px;
-  -webkit-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
-  animation: binaryright 4s infinite;
+  -webkit-animation: binaryright $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binaryright $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: binaryright $animation-time infinite;
 
   -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
   animation-delay: 1.6s;
@@ -292,17 +294,17 @@ button{
   width: 60px;
   margin-left: 328px;
   top: 284px;
-  -webkit-animation: key 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: key 4s infinite; /* Chrome, Safari, Opera */
-  animation: key 4s infinite;
+  -webkit-animation: key $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: key $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: key $animation-time infinite;
 }
 
 .lock-icon{
   width: 60px;
   top: 284px;
-  -webkit-animation: lock 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: lock 4s infinite; /* Chrome, Safari, Opera */
-  animation: lock 4s infinite;
+  -webkit-animation: lock $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: lock $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: lock $animation-time infinite;
 }
 
 
@@ -544,8 +546,16 @@ button{
 
 
  @media only screen and (max-width: 990px){
-    .step2, .step3, .step1 {
+    .step2, .step3, .step1, .step4 {
       margin: 20px auto 0 auto;
+    }
+
+    .howto-icon, .howto-bg{
+      display: none;
+    }
+
+    .info{
+      margin-top: 10px;
     }
  }
 
