@@ -66,6 +66,12 @@ describe "recipient secret form" do
       end
     end
 
+    context "token id" do
+      it "shows the token id of the recipient" do
+        expect(page).to have_content secret.recipient.token_id
+      end
+    end
+
     context "there are no errors on the form" do
       before(:each) do
         fill_in "secret_password", with: valid_password
