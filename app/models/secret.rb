@@ -5,6 +5,8 @@ class Secret < ActiveRecord::Base
   accepts_nested_attributes_for :recipient
   accepts_nested_attributes_for :sender, reject_if: proc { |att| att["email"].blank? }
 
+  DESTROY_TIME_OPTIONS = { "2 Hours" => "2", "4 Hours" => "4", "8 Hours" => "8", "12 Hours" => "12" }
+
   attr_accessor :body, :encryption_key, :password, :encryptor
 
   validates :body, presence: true
@@ -23,6 +25,16 @@ class Secret < ActiveRecord::Base
 
   def encryptor
     @encryptor ||= Encryptor.new
+  end
+
+  def destroy?
+    return false if Rails.env.development?
+    return false if expiry.present?
+    true
+  end
+
+  def expired?
+    Time.now > expiry if expiry.present?
   end
 
 private

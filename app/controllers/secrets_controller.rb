@@ -19,6 +19,11 @@ private
   end
 
   def secret_params
-    params.require(:secret).permit(:body, sender_attributes: [:email], recipient_attributes: [:email, :phone_number])
+    params.require(:secret).permit(:body, sender_attributes: [:email], recipient_attributes: [:email, :phone_number]).merge(expiry: expiry_time)
+  end
+
+  def expiry_time
+    expiry = params[:secret][:expiry]
+    Time.now + expiry.to_i.hours if expiry.present?
   end
 end
