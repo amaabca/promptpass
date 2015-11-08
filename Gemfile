@@ -51,6 +51,9 @@ gem 'draper'
 # simple forms
 gem 'simple_form'
 
+# email
+gem 'sendgrid'
+
 group :test do
   gem 'simplecov', require: false
   gem 'capybara'
