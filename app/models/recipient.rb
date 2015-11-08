@@ -4,6 +4,9 @@ class Recipient < ActiveRecord::Base
   normalize_attribute :phone_number, with: :phone
   normalize_attribute :email
 
+  validates :token,
+            presence: true
+
   validates :phone_number,
             presence: true,
             numericality: { allow_nil: true },
@@ -12,4 +15,8 @@ class Recipient < ActiveRecord::Base
   validates :email,
             presence: true,
             format: { with: /\A[^`@\s]+@([^@`\s\.]+\.)+[^`@\s\.]+\z/, message: I18n.t("errors.messages.email"), allow_nil: true }
+
+  before_validation do
+    self.token = SecureRandom.hex 64
+  end
 end

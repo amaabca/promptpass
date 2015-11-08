@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-
+  root 'pages#home'
+  get 'code-auth', to: 'pages#code-auth'
+  get 'form', to: 'pages#form'
+  get 'view-msg', to: 'pages#view-msg'
   resources :secrets, only: [:new, :create]
+  resources :recipients, only: [:show, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

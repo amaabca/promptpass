@@ -3,7 +3,7 @@ Rails.application.configure do
   config.middleware.insert_before ActionDispatch::SSL, Rack::HostRedirect, 
                                   { 'the-breakfast-troopers.r15.railsrumble.com' => 'www.prompt-pass.com',
                                     'aqueous-ocean-5935.herokuapp.com' => 'www.prompt-pass.com' }
-  
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -81,4 +81,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActionMailer::Base.smtp_settings = {
+    address:         'smtp.sendgrid.net',
+    port:            '587',
+    authentication:  :plain,
+    user_name:       ENV['SENDGRID_USERNAME'],
+    password:        ENV['SENDGRID_PASSWORD'],
+    domain:          'heroku.com',
+    enable_starttls_auto:  true
+  }
+
+  config.action_mailer.default_url_options = { host: Rails.configuration.promptpass_site }
 end
