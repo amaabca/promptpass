@@ -1,5 +1,5 @@
 class Secret < ActiveRecord::Base
-  has_one :recipient
+  has_one :recipient, dependent: :destroy
 
   accepts_nested_attributes_for :recipient
 
@@ -34,9 +34,19 @@ private
     encryptor.tap { |e| e.password, e.salt, e.message = password, encryption_salt, encrypted_body }
     self.body = encryptor.decrypt
   rescue ActiveSupport::MessageVerifier::InvalidSignature, EncryptionError
-    errors.add :password, I18n.t("errors.messages.decryption")
+    update_column(:decryption_attempt, self.decryption_attempt += 1)
+    description_error
   end
-
+  
+  def description_error
+    if decryption_attempt >= 5
+      errors.add :password, I18n.t("errors.messages.decryption_destroy")
+      self.destroy
+    else
+      errors.add :password, I18n.t("errors.messages.decryption", decryption_count: decryption_attempt)
+    end
+  end
+  
   def encrypt_body
     encryptor.message = body
     self.encrypted_body = encryptor.encrypt
@@ -55,6 +65,6 @@ private
   end
 
   def send_sms
-    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password).send_message
+    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password, token_id: recipient.token_id).send_message
   end
 end

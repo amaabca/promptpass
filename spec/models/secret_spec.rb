@@ -42,7 +42,7 @@ describe Secret do
       end
 
       it "calls the notify recipient" do
-        subject.should_receive(:notify_recipient).once
+        expect(subject).to receive(:notify_recipient).once
         subject.save
       end
     end
@@ -71,6 +71,7 @@ describe Secret do
     let(:valid_password) { "waffles" }
     let(:invalid_password) { "pancakes" }
     let(:secret) { Secret.last }
+    let(:decrypt_error) { I18n.t "errors.messages.decryption", decryption_count: 1 }
 
     before(:each) do
       stub_const("Twilio::REST::Client", FakeSms)
@@ -90,12 +91,18 @@ describe Secret do
 
       it "adds an error" do
         secret.decrypt
-        expect(secret.errors[:password]).to include I18n.t("errors.messages.decryption")
+        expect(secret.errors[:password]).to include decrypt_error
       end
 
       it "does not decrypt the message" do
         secret.decrypt
         expect(secret.body).to be_blank
+      end
+
+      it "destroys the message" do
+        5.times { secret.decrypt }
+        expect(secret.errors[:password]).to include I18n.t("errors.messages.decryption_destroy")
+        expect(Secret.find_by id: secret.id).to be_nil
       end
     end
 

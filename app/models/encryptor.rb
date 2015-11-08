@@ -31,6 +31,6 @@ private
   end
 
   def defaults
-    { password: rand(10000...99999), salt: SecureRandom.hex(64) }
+    { password: rand(10000...99999), salt: SecureRandom.hex(32) }
   end
 end

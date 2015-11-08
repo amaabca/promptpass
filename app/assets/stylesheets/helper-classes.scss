@@ -79,3 +79,11 @@ p{
   color: $button-color;
   display: block;
 }
+
+textarea[readonly].secret-text-background {
+  background-color: white;
+}
+
+textarea[readonly].secret-text-background:hover {
+  cursor: text;
+}

@@ -3,7 +3,7 @@ class SamplesController < ApplicationController
 
   def create
     if sample.save
-      render :create
+      redirect_to root_path, notice: I18n.t("notifications.secrets.sent") and return
     else
       render :new
     end

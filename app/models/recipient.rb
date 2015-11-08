@@ -17,6 +17,10 @@ class Recipient < ActiveRecord::Base
             format: { with: /\A[^`@\s]+@([^@`\s\.]+\.)+[^`@\s\.]+\z/, message: I18n.t("errors.messages.email"), allow_nil: true }
 
   before_validation do
-    self.token = SecureRandom.hex 64
+    self.token = SecureRandom.hex 32
+  end
+
+  def token_id
+    token[0..5] if token.present?
   end
 end

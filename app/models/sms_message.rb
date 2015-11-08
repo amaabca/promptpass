@@ -3,8 +3,9 @@ class SmsMessage
   include ActiveModel::Validations
 
   validates :recipient_number, format: { with: /\A\d+\z/ }, presence: true, length: { is: 10 }
+  validates :token_id, :secret_code, presence: true
 
-  attr_accessor :prompt_pass_number, :recipient_number, :secret_code, :twilio_sid, :twilio_token
+  attr_accessor :prompt_pass_number, :recipient_number, :secret_code, :token_id, :twilio_sid, :twilio_token
 
   def initialize(args = {})
     args = args.merge defaults
@@ -17,7 +18,7 @@ class SmsMessage
     client.messages.create(
       from: prompt_pass_number,
       to: "+1#{recipient_number}",
-      body: "Promptpass secret code: #{secret_code}"
+      body: "#{I18n.t("sms.text")} #{secret_code}, for secret #{token_id}"
     )
   end
 

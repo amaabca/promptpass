@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.force_ssl = true
-  config.middleware.insert_before ActionDispatch::SSL, Rack::HostRedirect, 
+  config.middleware.insert_before ActionDispatch::SSL, Rack::HostRedirect,
                                   { 'the-breakfast-troopers.r15.railsrumble.com' => 'www.prompt-pass.com',
                                     'aqueous-ocean-5935.herokuapp.com' => 'www.prompt-pass.com' }
 
@@ -83,13 +83,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   ActionMailer::Base.smtp_settings = {
-    address:         'smtp.sendgrid.net',
-    port:            '587',
-    authentication:  :plain,
-    user_name:       ENV['SENDGRID_USERNAME'],
-    password:        ENV['SENDGRID_PASSWORD'],
-    domain:          'heroku.com',
-    enable_starttls_auto:  true
+    address:                  'smtp.sendgrid.net',
+    port:                     '587',
+    authentication:           :plain,
+    user_name:                ENV['SENDGRID_USERNAME'],
+    password:                 ENV['SENDGRID_PASSWORD'],
+    enable_starttls_auto:     true
   }
 
   config.action_mailer.default_url_options = { host: Rails.configuration.promptpass_site }

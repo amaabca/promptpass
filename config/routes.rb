@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   root 'samples#new'
-  get 'code-auth', to: 'pages#code-auth'
-  get 'form', to: 'pages#form'
-  get 'view-msg', to: 'pages#view-msg'
+  get 'create_secret', to: 'secrets#new'
+  get 'about', to: 'pages#about'
+
   resources :secrets, only: [:new, :create]
   resources :samples, only: [:new, :create]
 
   resources :recipients, only: [] do
     resource :secrets, only: [:new, :create], module: :recipients
   end
+  
+  #static pages
+  get 'code-auth', to: 'pages#code-auth'
+  get 'form', to: 'pages#form'
+  get 'view-msg', to: 'pages#view-msg'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
