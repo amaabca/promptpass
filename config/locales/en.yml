@@ -29,7 +29,7 @@ en:
       sms_code: "15321"
     secrets:
       submit_button: "Send Your Secret Message"
-      decrypt_button: "Access Secret Message"
+      decrypt_button: "View Secret Message"
     samples:
       submit_button: "Send Me The Message Now!"
   notifications:
