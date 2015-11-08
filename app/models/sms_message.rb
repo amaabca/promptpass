@@ -3,6 +3,7 @@ class SmsMessage
   include ActiveModel::Validations
 
   validates :recipient_number, format: { with: /\A\d+\z/ }, presence: true, length: { is: 10 }
+  validates :token_id, :secret_code, presence: true
 
   attr_accessor :prompt_pass_number, :recipient_number, :secret_code, :token_id, :twilio_sid, :twilio_token
 
