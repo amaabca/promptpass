@@ -1,5 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
-  <body>
-    <%= yield %>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Pass</title>
+  </head>
+  <body style="color: #6a6868; cursor: auto; font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: normal; line-height: 1.5; position: relative; background: #fafafa; margin: 0; padding: 0px 0px 5px 0px;" bgcolor="#fafafa">
+    <div class="top-bar" data-topbar="" role="navigation" style="height: 65px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dfdfdf; position: fixed; z-index: 900; width: 100%; top: 0; background: #ffffff;">
+      <ul class="title-area" style="margin: 0; list-style: none;">
+        <li class="name" style="height: 65px;">
+          <h1 style="line-height: 65px; margin: 0;">
+            <a href="https://www.prompt-pass.com" style="box-sizing: border-box; color: #6a6868; cursor: auto; font-family: 'Patua One'; text-decoration: none;">
+              Prompt Pass
+            </a>
+          </h1>
+        </li>
+      </ul>
+    </div>
+    <div class="msg-wrapper small-centered" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto; float: none; width: 75%; background: #ffffff; padding: 25px; border: 1px solid #dfdfdf;">
+      <div class="msg-body" style="font-size: 0.9rem;">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
