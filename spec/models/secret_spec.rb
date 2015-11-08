@@ -24,23 +24,26 @@ describe Secret do
     context "successfully encrypts" do
       before(:each) do
         stub_const("Twilio::REST::Client", FakeSms)
-        subject.save
       end
 
       it "does does not return an error" do
+        subject.save
         expect(subject.errors).to be_blank
       end
 
       it "is set" do
+        subject.save
         expect(subject.encrypted_body).to eq encrypted_waffles
       end
 
       it "has an associated encryption_salt" do
+        subject.save
         expect(subject.encryption_salt).to eq subject.encryptor.salt
       end
 
-      xit "calls the notify recipient" do
+      it "calls the notify recipient" do
         subject.should_receive(:notify_recipient).once
+        subject.save
       end
     end
 
@@ -60,6 +63,59 @@ describe Secret do
 
       it "has no associated encryption_salt" do
         expect(subject.encryption_salt).to be_blank
+      end
+    end
+  end
+
+  describe "#decrypt" do
+    let(:valid_password) { "waffles" }
+    let(:invalid_password) { "pancakes" }
+    let(:secret) { Secret.last }
+
+    before(:each) do
+      stub_const("Twilio::REST::Client", FakeSms)
+      allow_any_instance_of(Encryptor).to receive(:password).and_return valid_password
+      FactoryGirl.create :secret
+      allow_any_instance_of(Encryptor).to receive(:password).and_call_original
+    end
+
+    context "invalid password" do
+      before(:each) do
+        secret.password = invalid_password
+      end
+
+      it "returns false" do
+        expect(secret.decrypt).to eq false
+      end
+
+      it "adds an error" do
+        secret.decrypt
+        expect(secret.errors[:password]).to include I18n.t("errors.messages.decryption")
+      end
+
+      it "does not decrypt the message" do
+        secret.decrypt
+        expect(secret.body).to be_blank
+      end
+    end
+
+    context "valid password" do
+      before(:each) do
+        secret.password = valid_password
+      end
+
+      it "returns true" do
+        expect(secret.decrypt).to eq true
+      end
+
+      it "does not add an error" do
+        secret.decrypt
+        expect(secret.errors[:password]).to_not include I18n.t("errors.messages.decryption")
+      end
+
+      it "decrypts the message" do
+        secret.decrypt
+        expect(secret.body).to eq secret.body
       end
     end
   end

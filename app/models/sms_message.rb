@@ -7,11 +7,8 @@ class SmsMessage
   attr_accessor :prompt_pass_number, :recipient_number, :secret_code, :twilio_sid, :twilio_token
 
   def initialize(args = {})
-    self.prompt_pass_number = '+15873175563'
-    self.twilio_sid = Rails.configuration.twilio_sid
-    self.twilio_token = Rails.configuration.twilio_token
-    self.recipient_number = args.fetch(:recipient_number)
-
+    args = args.merge defaults
+    super
     raise "Validation error: #{errors.full_messages.join(",")}" unless valid?
   end
 
@@ -24,7 +21,13 @@ class SmsMessage
     )
   end
 
-  def secret_code
-    @secret_code ||= rand(10000...99999)
+private
+
+  def defaults
+    {
+      prompt_pass_number: '+15873175563',
+      twilio_sid: Rails.configuration.twilio_sid,
+      twilio_token: Rails.configuration.twilio_token
+    }
   end
 end

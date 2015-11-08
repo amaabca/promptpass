@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'form', to: 'pages#form'
   get 'view-msg', to: 'pages#view-msg'
   resources :secrets, only: [:new, :create]
-  resources :recipients, only: [:show, :destroy]
+
+  resources :recipients, only: [] do
+    resource :secrets, only: [:new, :create], module: :recipients
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

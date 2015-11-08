@@ -8,7 +8,7 @@ describe SmsMessage do
 
     it "should fail" do
       expect { SmsMessage.new({recipient_number:'+17809072962'}).send_message }.to raise_error RuntimeError
-      expect { SmsMessage.new({}).send_message }.to raise_error KeyError
+      expect { SmsMessage.new({}).send_message }.to raise_error RuntimeError
       expect { SmsMessage.new({recipient_number:'9072962'}).send_message }.to raise_error RuntimeError
     end
   end

@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  def render_404
+    head :not_found
+  end
 end

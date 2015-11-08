@@ -54,6 +54,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.7.1)
+      capybara (>= 2.3.0, < 2.6.0)
+      json
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -226,6 +229,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara
+  capybara-webkit
   coffee-rails (~> 4.1.0)
   decent_exposure
   draper
