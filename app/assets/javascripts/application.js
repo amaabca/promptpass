@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= skrollr
+//= require_self
+$(function(){ $(document).foundation(); });
