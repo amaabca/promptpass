@@ -34,9 +34,19 @@ private
     encryptor.tap { |e| e.password, e.salt, e.message = password, encryption_salt, encrypted_body }
     self.body = encryptor.decrypt
   rescue ActiveSupport::MessageVerifier::InvalidSignature, EncryptionError
-    errors.add :password, I18n.t("errors.messages.decryption")
+    update_column(:decryption_attempt, self.decryption_attempt += 1)
+    description_errors
   end
-
+  
+  def description_errors
+    if decryption_attempt >= 5
+      errors.add :password, I18n.t("errors.messages.decryption_destroy")
+      self.destroy
+    else
+      errors.add :password, I18n.t("errors.messages.decryption", decryption_count: decryption_attempt)
+    end
+  end
+  
   def encrypt_body
     encryptor.message = body
     self.encrypted_body = encryptor.encrypt

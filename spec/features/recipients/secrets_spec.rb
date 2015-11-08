@@ -7,7 +7,7 @@ describe "recipient secret form" do
   let(:secret) { Secret.last }
   let(:recipient_secret_url) { new_recipient_secrets_url(token) }
   let(:decrypt_button) {  I18n.t "forms.secrets.decrypt_button" }
-  let(:decrypt_error) { I18n.t "errors.messages.decryption" }
+  let(:decrypt_error) { I18n.t "errors.messages.decryption", decryption_count: 1 }
 
   before(:each) do
     stub_const("Twilio::REST::Client", FakeSms)
@@ -61,6 +61,19 @@ describe "recipient secret form" do
 
           it "does not show us a success message" do
             expect(page).to_not have_content I18n.t("forms.pages.decrypted")
+          end
+        end
+        
+        context "has been filled out with an invalid value 5 times" do
+          it "shows a required field error" do
+            5.times do
+              fill_in "secret_password", with: invalid_password
+              click_button decrypt_button
+            end
+            
+            within("div.secret_password") do
+              expect(page).to have_content I18n.t("errors.messages.decryption_destroy")
+            end
           end
         end
       end
