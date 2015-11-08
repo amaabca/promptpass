@@ -16,11 +16,11 @@
             <%= f.simple_fields_for :recipient do |rf| %>
               <div class="large-6 columns">
                 <label class="white-text">Your Email</label>
-                <%= rf.input :email, type: 'email', placeholder: I18n.t("errors.messages.email"), label: false %>
+                <%= rf.input :email, type: 'email', placeholder: I18n.t("forms.placeholders.email"), label: false %>
               </div>
               <div class="large-6 columns">
                 <label class="white-text">Your Phone Number</label>
-                <%= rf.input :phone_number, type: 'tel', placeholder: I18n.t("errors.messages.phone_number"), label: false %>
+                <%= rf.input :phone_number, type: 'tel', placeholder: I18n.t("forms.placeholders.phone_number"), label: false %>
               </div>
             <% end %>
             </div>
