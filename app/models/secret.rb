@@ -15,7 +15,6 @@ class Secret < ActiveRecord::Base
 
   after_validation :encrypt_body
 
-  after_save :generate_token
   after_save :notify_recipient
 
   def new_secret_email
@@ -36,15 +35,9 @@ private
     errors.add :body, I18n.t("errors.messages.encryption")
   end
 
-  def generate_token
-    recipient.update_column(:token, "#{SecureRandom.hex(64)}")
-  end
-
   def notify_recipient
-    if recipient.token.present? # just to be on the safe side NOTE: find a better way to handle this
-      send_email
-      send_sms
-    end
+    send_email
+    send_sms
   end
 
   def send_email

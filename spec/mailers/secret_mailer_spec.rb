@@ -12,7 +12,7 @@ RSpec.describe SecretMailer, type: :mailer do
       it "render the headers" do
         expect(mail.subject).to eq I18n.t("mailer.new_secret_email.subject")
         expect(mail.to).to eq ["#{secret.recipient.email}"]
-        expect(mail.from).to eq ["secrectkeeper@promptpass.ca"]
+        expect(mail.from).to eq ["secretkeeper@prompt-pass.com"]
       end
     end
 
