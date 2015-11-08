@@ -26,7 +26,7 @@ en:
     placeholders:
       phone_number: "555-555-5555"
       email: "example@example.com"
-      sms_code: "1532"
+      sms_code: "15321"
     secrets:
       submit_button: "Send Your Secret Message"
       decrypt_button: "Access Secret Message"
@@ -44,4 +44,4 @@ en:
       decryption: "we were unable to decrypt the message."
   mailer:
     new_secret_email:
-      subject: "You got a new secret."
+      subject: "Pass Prompt | You've been sent a secret message."
