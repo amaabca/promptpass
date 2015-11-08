@@ -1,5 +1,5 @@
 class Secret < ActiveRecord::Base
-  has_one :recipient
+  has_one :recipient, dependent: :destroy
 
   accepts_nested_attributes_for :recipient
 

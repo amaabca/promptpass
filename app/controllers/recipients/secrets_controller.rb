@@ -11,6 +11,7 @@ module Recipients
 
     def create
       if secret.decrypt
+        secret.destroy
         render :create
       else
         render :new

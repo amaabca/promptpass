@@ -75,6 +75,17 @@ describe "recipient secret form" do
       it "does show us a success message" do
         expect(page).to have_content I18n.t("forms.pages.decrypted")
       end
+
+      context "destroy after view" do
+        it "destroys the secret record" do
+          expect(Secret.all).to be_empty
+        end
+
+        it "users revisit the page" do
+          visit recipient_secret_url
+          expect(page.driver.response.status).to eq 404
+        end
+      end
     end
   end
 end
