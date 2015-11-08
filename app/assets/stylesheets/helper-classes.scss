@@ -28,6 +28,14 @@ p{
   color: #6A6868;
 }
 
+.mt1{
+  margin-top: 20px;
+}
+
+.page-top-m{
+  margin-top:70px;
+}
+
 .relative{
   position: relative;
   height: auto;
@@ -47,9 +55,22 @@ p{
 }
 
 .blue-bg{
-  
+
 }
 
 .white-text{
   color: white;
+}
+
+.mice-type{
+  font-size: 12px;
+  font-weight: lighter;
+  color: lighten($grey-text, 20%);
+}
+
+.text-link{
+  text-align: center;
+  text-decoration: underline;
+  color: $button-color;
+  display: block;
 }
