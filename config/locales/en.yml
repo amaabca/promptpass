@@ -41,7 +41,7 @@ en:
       email: "must be a valid email address."
       blank: "is a required field."
       encryption: "We were unable to encrypt the message."
-      decryption: "We were unable to decrypt the message. Message will be destroyed after 5 attempts - %{decryption_count} of 5"
+      decryption: "We were unable to decrypt the message. Message will be destroyed after 5 attempts - %{decryption_count} of 5."
       decryption_destroy: "Maximum number of tries exceeded. The secret message has been destroyed."
   mailer:
     new_secret_email:

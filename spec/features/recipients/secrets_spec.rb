@@ -65,7 +65,7 @@ describe "recipient secret form" do
         end
         
         context "has been filled out with an invalid value 5 times" do
-          it "shows a required field error" do
+          it "shows that the message has been dsetroyed" do
             5.times do
               fill_in "secret_password", with: invalid_password
               click_button decrypt_button
