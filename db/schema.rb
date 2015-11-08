@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108160748) do
+ActiveRecord::Schema.define(version: 20151108164324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,5 +35,16 @@ ActiveRecord::Schema.define(version: 20151108160748) do
     t.string   "encryption_salt"
     t.integer  "decryption_attempt", default: 0
   end
+
+  create_table "senders", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.integer  "secret_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "senders", ["secret_id"], name: "index_senders_on_secret_id", using: :btree
+  add_index "senders", ["token"], name: "index_senders_on_token", using: :btree
 
 end

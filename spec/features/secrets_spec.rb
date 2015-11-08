@@ -103,16 +103,59 @@ describe "secret form" do
         end
       end
     end
+
+    describe "#sender" do
+      describe "#email" do
+        context "has been filled out with an invalid value" do
+          before(:each) do
+            find("a[href='#advanced_options']").click
+            fill_in "secret_sender_attributes_email", with: "waffles"
+            click_button submit_button
+          end
+
+          it "shows a required field error" do
+            within("div.secret_sender_email") do
+              expect(page).to have_content email_error
+            end
+          end
+
+          it "does not show us a success message" do
+            expect(page).to_not have_content I18n.t("notifications.secrets.sent")
+          end
+
+          it "expands the #advanced_options accordion" do
+            expect(page).to have_selector("#secret_sender_attributes_email", visible: true)
+          end
+        end
+      end
+    end
   end
 
   context "there are no errors on the form" do
     before(:each) do
       stub_const("Twilio::REST::Client", FakeSms)
-      click_button submit_button
     end
 
-    it "shows us a success message" do
-      expect(page).to have_content I18n.t("notifications.secrets.sent")
+    context "there is no sender" do
+      before(:each) do
+        click_button submit_button
+      end
+
+      it "shows us a success message" do
+        expect(page).to have_content I18n.t("notifications.secrets.sent")
+      end
+    end
+
+    context "there is a sender" do
+      before(:each) do
+        find("a[href='#advanced_options']").click
+        fill_in "secret_sender_attributes_email", with: "ilikesecretstoo@secrets.com"
+        click_button submit_button
+      end
+
+      it "shows us a success message" do
+        expect(page).to have_content I18n.t("notifications.secrets.sent")
+      end
     end
   end
 end

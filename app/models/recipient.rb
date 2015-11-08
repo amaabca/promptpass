@@ -1,6 +1,8 @@
 class Recipient < ActiveRecord::Base
   belongs_to :secret
 
+  attr_accessor :encryptor
+
   normalize_attribute :phone_number, with: :phone
   normalize_attribute :email
 
@@ -22,5 +24,17 @@ class Recipient < ActiveRecord::Base
 
   def token_id
     token[0..5] if token.present?
+  end
+
+  def send_notifications
+    send_email and send_sms
+  end
+
+  def send_email
+    SecretMailer.secret_created(secret: secret).deliver_now
+  end
+
+  def send_sms
+    SmsMessage.new(recipient_number: phone_number, secret_code: encryptor.password, token_id: token_id).send_message
   end
 end
