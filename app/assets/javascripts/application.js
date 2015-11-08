@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require secrets
-//= skrollr
 //= require_self
 $(function(){ $(document).foundation(); });

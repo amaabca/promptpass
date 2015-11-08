@@ -1,6 +1,8 @@
-$button-color: #29BCCB;
+$button-color: #083B6E;
 $light-grey: #DFDFDF;
 $grey-text: #6A6868;
+
+$animation-time:4s;
 
  .banner{
    background: asset-url("traffic-bg.jpg");
@@ -143,7 +145,7 @@ button{
    padding: 25px;
 
    &:hover{
-     background: darken(#29BCCB, 10%);
+     background: darken($button-color, 10%);
    }
  }
 
@@ -173,6 +175,10 @@ button{
    text-align: center;
    position: relative;
    padding: 1px;
+   background: asset-url("tech-bg.png");
+   background-size: contain;
+   background-position: bottom center;
+   background-repeat: no-repeat;
  }
 
  .howto-bg{
@@ -259,18 +265,18 @@ button{
 }
 
 .secret-icon{
-  -webkit-animation: secret 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: secret 4s infinite; /* Chrome, Safari, Opera */
-  animation: secret 4s infinite;
+  -webkit-animation: secret $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: secret $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: secret $animation-time infinite;
 }
 
 .binary-icon{
   width: 135px;
   margin-left: -55px;
   top: 291px;
-  -webkit-animation: binary 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: binary 4s infinite; /* Chrome, Safari, Opera */
-  animation: binary 4s infinite;
+  -webkit-animation: binary $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binary $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: binary $animation-time infinite;
 
   -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
   animation-delay: 1.6s;
@@ -280,9 +286,9 @@ button{
   width: 135px;
   margin-left: -55px;
   top: 291px;
-  -webkit-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: binaryright 4s infinite; /* Chrome, Safari, Opera */
-  animation: binaryright 4s infinite;
+  -webkit-animation: binaryright $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: binaryright $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: binaryright $animation-time infinite;
 
   -webkit-animation-delay: 1.6s; /* Chrome, Safari, Opera */
   animation-delay: 1.6s;
@@ -292,17 +298,17 @@ button{
   width: 60px;
   margin-left: 328px;
   top: 284px;
-  -webkit-animation: key 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: key 4s infinite; /* Chrome, Safari, Opera */
-  animation: key 4s infinite;
+  -webkit-animation: key $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: key $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: key $animation-time infinite;
 }
 
 .lock-icon{
   width: 60px;
   top: 284px;
-  -webkit-animation: lock 4s infinite; /* Chrome, Safari, Opera */
-  -moz-animation: lock 4s infinite; /* Chrome, Safari, Opera */
-  animation: lock 4s infinite;
+  -webkit-animation: lock $animation-time infinite; /* Chrome, Safari, Opera */
+  -moz-animation: lock $animation-time infinite; /* Chrome, Safari, Opera */
+  animation: lock $animation-time infinite;
 }
 
 
@@ -424,7 +430,7 @@ button{
    width: 100%;
    padding: 1.3em;
    line-height: 1.4em;
-   font-size: 1.1rem;
+   font-size: .98rem;
    border-radius: 4px;
    border: 1px solid #e7e7e7;
    -webkit-appearance: none;
@@ -456,6 +462,18 @@ button{
     color: #D2D2D2;
  }
 
+ span.error, small.error {
+    display: block;
+    font-size: 0.75rem;
+    /* font-style: italic; */
+    font-weight: normal;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+    padding: 0.375rem 0.5625rem 0.5625rem;
+    background: #AA2812;
+    color: #FFFFFF;
+}
+
  h3{
    text-transform: uppercase;
    font-size: 1.4rem;
@@ -468,6 +486,7 @@ button{
      position: fixed;
      z-index: 900;
      width:100%;
+     top: 0;
  }
  .top-bar .row {
      max-width: 62.5rem;
@@ -544,8 +563,16 @@ button{
 
 
  @media only screen and (max-width: 990px){
-    .step2, .step3, .step1 {
+    .step2, .step3, .step1, .step4 {
       margin: 20px auto 0 auto;
+    }
+
+    .howto-icon, .howto-bg{
+      display: none;
+    }
+
+    .info{
+      margin-top: 10px;
     }
  }
 
