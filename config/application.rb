@@ -25,6 +25,6 @@ module PromptPass
 
     config.twilio_sid = ENV['TWILIO_SID']
     config.twilio_token = ENV['TWILIO_TOKEN']
-    config.promptpass_site = ENV['https://www.prompt-pass.com']
+    config.promptpass_site = 'https://www.prompt-pass.com'
   end
 end
