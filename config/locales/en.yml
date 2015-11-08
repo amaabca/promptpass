@@ -47,8 +47,8 @@ en:
       decryption_destroy: "Maximum number of tries exceeded. The secret message has been destroyed."
   mailer:
     secret_created:
-      subject: "Prompt Pass | You've been sent a secret message."
+      subject: "You've been sent a secret message."
     secret_received:
-      subject: "Prompt Pass | Your secret message has been received."
+      subject: "Your secret message has been received."
   sms:
     text: "Prompt Pass access code:"
