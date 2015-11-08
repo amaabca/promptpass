@@ -3,13 +3,14 @@ require "simplecov"
 SimpleCov.start do
   add_filter "/spec/"
   add_filter "/vendor/"
+  add_filter "/config/"
 end
 
 
 RSpec.configure do |config|
   ENV['TWILIO_SID'] = 'waffles'
   ENV['TWILIO_TOKEN'] = 'batman'
-  
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

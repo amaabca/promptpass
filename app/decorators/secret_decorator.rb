@@ -3,6 +3,6 @@ class SecretDecorator < Draper::Decorator
   decorates_association :recipient
 
   def secret_url
-    h.recipient_url recipient.token
+    h.new_recipient_secrets_url recipient.token
   end
 end

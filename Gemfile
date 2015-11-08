@@ -54,8 +54,9 @@ gem 'simple_form'
 group :test do
   gem 'simplecov', require: false
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'webmock'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
 end
 
 group :development, :test do

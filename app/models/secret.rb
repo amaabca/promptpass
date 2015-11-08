@@ -3,11 +3,9 @@ class Secret < ActiveRecord::Base
 
   accepts_nested_attributes_for :recipient
 
-  attr_accessor :body, :encryption_key
+  attr_accessor :body, :encryption_key, :password, :encryptor
 
   validates :body, presence: true
-
-  delegate :password, :salt, to: :encryptor
 
   after_initialize do
     build_recipient unless recipient
@@ -21,16 +19,28 @@ class Secret < ActiveRecord::Base
     @new_secret_email ||= SecretMailer.new_secret_email(secret: self)
   end
 
+  def decrypt
+    decrypt_body
+    errors[:password].blank?
+  end
+
   def encryptor
     @encryptor ||= Encryptor.new
   end
 
 private
 
+  def decrypt_body
+    encryptor.tap { |e| e.password, e.salt, e.message = password, encryption_salt, encrypted_body }
+    self.body = encryptor.decrypt
+  rescue ActiveSupport::MessageVerifier::InvalidSignature, EncryptionError
+    errors.add :password, I18n.t("errors.messages.decryption")
+  end
+
   def encrypt_body
     encryptor.message = body
     self.encrypted_body = encryptor.encrypt
-    self.encryption_salt = salt
+    self.encryption_salt = encryptor.salt
   rescue EncryptionError
     errors.add :body, I18n.t("errors.messages.encryption")
   end
@@ -45,6 +55,6 @@ private
   end
 
   def send_sms
-    SmsMessage.new(recipient_number: recipient.phone_number).send_message
+    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password).send_message
   end
 end
