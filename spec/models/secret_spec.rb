@@ -1,6 +1,8 @@
 describe Secret do
+  let(:recipient) { FactoryGirl.create(:recipient) }
+
   before(:each) do
-    subject.recipient = nil
+    subject.recipient = recipient
   end
 
   describe "#body" do
@@ -21,6 +23,7 @@ describe Secret do
 
     context "successfully encrypts" do
       before(:each) do
+        stub_const("Twilio::REST::Client", FakeSms)
         subject.save
       end
 
@@ -34,6 +37,10 @@ describe Secret do
 
       it "has an associated encryption_salt" do
         expect(subject.encryption_salt).to eq subject.encryptor.salt
+      end
+
+      xit "calls the notify recipient" do
+        subject.should_receive(:notify_recipient).once
       end
     end
 

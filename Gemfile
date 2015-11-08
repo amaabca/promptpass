@@ -32,9 +32,6 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'puma'
-gem 'rack-timeout'
-
 gem 'foundation-rails'
 gem 'foreman'
 gem 'twilio-ruby'
@@ -56,6 +53,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'capybara'
   gem 'webmock'
+  gem "factory_girl_rails"
 end
 
 group :development, :test do
@@ -69,9 +67,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # mailer testing
   gem 'letter_opener'
 end
 
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
+  gem 'rack-timeout'
 end
