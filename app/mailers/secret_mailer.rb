@@ -1,9 +1,15 @@
 class SecretMailer < ApplicationMailer
   include SendGrid
 
-  def new_secret_email(args = {})
+  def secret_created(args = {})
     sendgrid_disable :opentrack, :clicktrack, :ganalytics
     @secret = args.fetch(:secret, nil).try(:decorate)
-    mail(to: @secret.recipient.email, subject: I18n.t("mailer.new_secret_email.subject"))
+    mail(to: @secret.recipient.email, subject: I18n.t("mailer.secret_created.subject"))
+  end
+
+  def secret_received(args = {})
+    sendgrid_disable :opentrack, :clicktrack, :ganalytics
+    @secret = args.fetch(:secret, nil).try(:decorate)
+    mail(to: @secret.sender.email, subject: I18n.t("mailer.secret_received.subject"))
   end
 end

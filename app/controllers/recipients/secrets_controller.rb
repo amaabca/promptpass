@@ -9,9 +9,13 @@ module Recipients
       raise ActiveRecord::RecordNotFound if recipient.blank?
     end
 
+    before_action do
+      secret.destroy if secret.expired?
+    end
+
     def create
       if secret.decrypt
-        secret.destroy unless Rails.env.development?
+        tidy_up
         render :create
       else
         render :new
@@ -19,6 +23,11 @@ module Recipients
     end
 
   private
+
+    def tidy_up
+      secret.sender.try(:send_email)
+      secret.destroy if secret.destroy?
+    end
 
     def secret_params
       params.require(:secret).permit(:password)

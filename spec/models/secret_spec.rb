@@ -126,4 +126,38 @@ describe Secret do
       end
     end
   end
+
+  describe "#destroy?" do
+    context "expiry date is set" do
+      before(:each) do
+        subject.expiry = Time.now + 1.hours
+      end
+
+      it "returns false" do
+        expect(subject.destroy?).to be false
+      end
+    end
+
+    context "expiry date is not set" do
+      it "returns true" do
+        expect(subject.destroy?).to be true
+      end
+    end
+  end
+
+  describe "#expired?" do
+    before(:each) do
+      subject.expiry = Time.now + 1.hours
+    end
+
+    it "returns false if current time is not greater than expiry" do
+      expect(subject.expired?).to be false
+    end
+
+    it "returns true if current time is greater than expiry" do
+      Timecop.freeze(Time.now + 2.hours) do
+        expect(subject.expired?).to be true
+      end
+    end
+  end
 end

@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require secrets
 //= require_self
 $(function(){ $(document).foundation(); });

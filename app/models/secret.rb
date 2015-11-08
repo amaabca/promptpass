@@ -1,7 +1,11 @@
 class Secret < ActiveRecord::Base
   has_one :recipient, dependent: :destroy
+  has_one :sender, dependent: :destroy
 
   accepts_nested_attributes_for :recipient
+  accepts_nested_attributes_for :sender, reject_if: proc { |att| att["email"].blank? }
+
+  DESTROY_TIME_OPTIONS = { "2 Hours" => "2", "4 Hours" => "4", "8 Hours" => "8", "12 Hours" => "12" }
 
   attr_accessor :body, :encryption_key, :password, :encryptor
 
@@ -12,12 +16,7 @@ class Secret < ActiveRecord::Base
   end
 
   after_validation :encrypt_body
-
   after_save :notify_recipient
-
-  def new_secret_email
-    @new_secret_email ||= SecretMailer.new_secret_email(secret: self)
-  end
 
   def decrypt
     decrypt_body
@@ -26,6 +25,16 @@ class Secret < ActiveRecord::Base
 
   def encryptor
     @encryptor ||= Encryptor.new
+  end
+
+  def destroy?
+    return false if Rails.env.development?
+    return false if expiry.present?
+    true
+  end
+
+  def expired?
+    Time.now > expiry if expiry.present?
   end
 
 private
@@ -37,7 +46,7 @@ private
     update_column(:decryption_attempt, self.decryption_attempt += 1)
     description_error
   end
-  
+
   def description_error
     if decryption_attempt >= 5
       errors.add :password, I18n.t("errors.messages.decryption_destroy")
@@ -46,7 +55,7 @@ private
       errors.add :password, I18n.t("errors.messages.decryption", decryption_count: decryption_attempt)
     end
   end
-  
+
   def encrypt_body
     encryptor.message = body
     self.encrypted_body = encryptor.encrypt
@@ -56,15 +65,7 @@ private
   end
 
   def notify_recipient
-    send_email
-    send_sms
-  end
-
-  def send_email
-    new_secret_email.deliver_now
-  end
-
-  def send_sms
-    SmsMessage.new(recipient_number: recipient.phone_number, secret_code: encryptor.password, token_id: recipient.token_id).send_message
+    recipient.encryptor = encryptor
+    recipient.send_notifications
   end
 end
