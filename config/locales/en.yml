@@ -26,11 +26,10 @@ en:
       email: "example@example.com"
       sms_code: "1532"
     secrets:
-      submit_button: "Send your secret message"
-      decrypt_button: "Decrypt It!"
-    samples:
       submit_button: "Send Your Secret Message"
       decrypt_button: "Access Secret Message"
+    samples:
+      submit_button: "Send Me The Message Now!"
   notifications:
     secrets:
       sent: "Shhhhh! Your secret is on the way. Don't tell anyone."
