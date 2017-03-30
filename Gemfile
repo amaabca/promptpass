@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '~> 4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -34,16 +34,16 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rack-host-redirect'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.5'
 gem 'foreman'
 gem 'twilio-ruby'
-gem 'rollbar', '~> 2.4.0'
+gem 'rollbar', '~> 2.4'
 
 # validation and normalization
 gem 'attribute_normalizer-extras'
 
 # better controllers
-gem 'decent_exposure'
+gem 'decent_exposure', '~> 2.3'
 
 # decorators
 gem 'draper'
