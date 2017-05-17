@@ -54,6 +54,11 @@ gem 'simple_form'
 # email
 gem 'sendgrid'
 
+# ACTIONMAILER and AWS-SES dependency version lock to prevent security threat
+# Please remove once stable version has been released
+# https://github.com/mikel/mail/pull/1097
+gem 'mail', '2.7.0.rc1'
+
 group :test do
   gem 'simplecov', require: false
   gem 'capybara'
