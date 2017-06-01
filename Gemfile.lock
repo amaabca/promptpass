@@ -59,9 +59,9 @@ GEM
       capybara (>= 2.3.0, < 2.14.0)
       json
     coderay (1.1.1)
-    coffee-rails (4.2.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -93,7 +93,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashdiff (0.3.4)
-    i18n (0.8.1)
+    i18n (0.8.4)
     jbuilder (2.6.4)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2)
@@ -127,7 +127,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.8.2)
+    puma (3.9.0)
     rack (1.6.8)
     rack-host-redirect (1.3.0)
       rack
@@ -194,16 +194,16 @@ GEM
       tilt (>= 1.1, < 3)
     sendgrid (1.2.4)
       json
-    simple_form (3.4.0)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
-    spring (2.0.1)
+    spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -228,11 +228,12 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    xpath (2.0.0)
+    xpath (2.1.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
+  x86_64-darwin-14
 
 DEPENDENCIES
   attribute_normalizer-extras
